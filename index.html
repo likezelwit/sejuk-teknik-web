@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google Site Verification Added -->
+
+<!-- SEO Meta Tags (UPDATED) -->
+<title>Sejuk Teknik - Rental & Service AC Spesialis Koja Jakarta Utara</title>
+<meta name="description" content="Jasa sewa AC Split Sharp 3/4 PK, service, dan cuci AC murah di Koja. Berpengalaman 5 tahun. Hubungi Wahyudi: 0858-17-8182-16.">
+<meta name="keywords" content="Service AC Koja, Rental AC Koja, Cuci AC Jakarta Utara, Sewa AC Murah, Teknisi AC Koja">
 <meta name="google-site-verification" content="qXZj7IrpE9Tu8PCYVs0zXFtM87taOcKEkm2kQor0cDw" />
-<title>Sejuk Teknik AC – Spesialis Servis & Rental AC Jakarta</title>
+
+<!-- Favicon / Browser Icon (UPDATED) -->
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co.com/qMfqRXm0/15825173-d48c-4cd8-a166-c6d4fe79d0da.jpg">
+
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   /* ── RESET & VARIABLES ── */
@@ -226,16 +233,59 @@
   .service-card p { color: var(--text-muted); margin-bottom: 24px; font-size: 1rem; line-height: 1.6; flex-grow: 1; } /* Flex grow agar tombol rata bawah */
   .service-link { color: var(--cyan-600); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: 0.95rem; }
 
-  /* ── RENTAL PRICING ── */
+  /* ── RENTAL PRICING (UPDATED) ── */
   .rental { background: linear-gradient(180deg, var(--white) 0%, var(--cyan-50) 100%); }
   .pricing-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 50px; }
-  .price-card { background: var(--white); padding: 40px 32px; border-radius: 24px; border: 2px solid var(--cyan-100); text-align: center; position: relative; }
-  .price-card.popular { border-color: var(--cyan-400); box-shadow: var(--shadow-lg); transform: scale(1.03); }
+  
+  .price-card { 
+    background: var(--white); 
+    padding: 40px 32px; 
+    border-radius: 24px; 
+    border: 2px solid var(--cyan-100); 
+    text-align: center; 
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .price-card.popular { border-color: var(--cyan-400); box-shadow: var(--shadow-lg); transform: scale(1.03); z-index: 2; }
   .badge-popular { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--cyan-500); color: white; padding: 6px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; }
+  
   .price-unit { font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 4px; font-family: 'Syne', sans-serif; }
-  .price-type { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 32px; line-height: 1.5; }
-  .price-row { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px dashed var(--cyan-200); font-size: 1rem; font-weight: 500; }
-  .price-row:last-child { border-bottom: none; font-weight: 800; color: var(--cyan-700); margin-top: 24px; font-size: 1.25rem; padding-top: 20px; border-top: 2px solid var(--cyan-100); }
+  .price-type { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 32px; line-height: 1.5; min-height: 40px; display: flex; align-items: center; justify-content: center;}
+  
+  /* Style khusus untuk baris harga agar terlihat menonjol */
+  .price-row { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 16px 0; 
+    border-bottom: 1px dashed var(--cyan-200); 
+    font-size: 1rem; 
+    font-weight: 500; 
+  }
+
+  /* Baris harga utama (Sewa) */
+  .price-row.main-price {
+    background-color: var(--cyan-50);
+    margin: 0 -20px; /* Stretch background to edges */
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--cyan-200);
+    border-top: 1px solid var(--cyan-200);
+    font-size: 1.1rem;
+  }
+  .price-row.main-price span:last-child {
+    font-weight: 800;
+    color: var(--cyan-700);
+    font-size: 1.25rem;
+  }
+
+  .price-row.installation-fee span:last-child {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .price-card .btn { margin-top: auto; width: 100%; justify-content: center; }
+
   .rental-features { margin-top: 60px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
   .feature-tag { background: var(--white); padding: 12px 24px; border-radius: 50px; border: 1px solid var(--cyan-200); display: flex; align-items: center; gap: 8px; color: var(--cyan-800); font-weight: 600; font-size: 0.95rem; }
 
@@ -299,6 +349,8 @@
     .brands-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
     .section-padding { padding: 80px 0; }
     .contact-grid { gap: 32px; }
+    .pricing-wrapper { grid-template-columns: 1fr; }
+    .price-card.popular { transform: scale(1); }
   }
 </style>
 </head>
@@ -337,7 +389,7 @@
   </div>
 </section>
 
-<!-- BRANDS SECTION (UPDATED LOGOS & TYPOGRAPHY) -->
+<!-- BRANDS SECTION -->
 <section class="brands" id="brands">
   <div class="container">
     <div class="text-center">
@@ -351,109 +403,91 @@
         <img src="https://i.ibb.co/fdFwwgCK/lg.png" alt="LG AC" class="brand-logo-img">
         <span class="brand-name">LG</span>
       </div>
-
       <!-- Daikin -->
       <div class="brand-item">
         <img src="https://i.ibb.co/JWWR0qgN/daikin.png" alt="Daikin AC" class="brand-logo-img">
         <span class="brand-name">Daikin</span>
       </div>
-
       <!-- Sharp -->
       <div class="brand-item">
         <img src="https://i.ibb.co/Q3v47myj/sharp.png" alt="Sharp AC" class="brand-logo-img">
         <span class="brand-name">Sharp</span>
       </div>
-
       <!-- Toshiba -->
       <div class="brand-item">
         <img src="https://i.ibb.co/hTdQ3mH/thosiba.png" alt="Toshiba AC" class="brand-logo-img">
         <span class="brand-name">Toshiba</span>
       </div>
-
       <!-- Panasonic -->
       <div class="brand-item">
         <img src="https://i.ibb.co/RTx46Ndg/panasonic.png" alt="Panasonic AC" class="brand-logo-img">
         <span class="brand-name">Panasonic</span>
       </div>
-
       <!-- Samsung -->
       <div class="brand-item">
         <img src="https://i.ibb.co/pvTz12vZ/samsung.png" alt="Samsung AC" class="brand-logo-img">
         <span class="brand-name">Samsung</span>
       </div>
-
       <!-- Haier -->
       <div class="brand-item">
         <img src="https://i.ibb.co/BV3zrBxh/Haier-logo-svg.png" alt="Haier AC" class="brand-logo-img">
         <span class="brand-name">Haier</span>
       </div>
-
       <!-- Akari -->
       <div class="brand-item">
         <img src="https://i.ibb.co/8DNTprNn/Logo-Akari.png" alt="Akari AC" class="brand-logo-img">
         <span class="brand-name">Akari</span>
       </div>
-
       <!-- Sanken -->
       <div class="brand-item">
         <img src="https://i.ibb.co/F47jwZJ7/Logo-Sanken.png" alt="Sanken AC" class="brand-logo-img">
         <span class="brand-name">Sanken</span>
       </div>
-
       <!-- Aqua -->
       <div class="brand-item">
         <img src="https://i.ibb.co/QvWDQm7v/tmp-9a6db9244d8172ef5af8fd932e3220fe-0f757bd25520a6d519a4eaa58c9eaa16.jpg" alt="Aqua AC" class="brand-logo-img">
         <span class="brand-name">Aqua</span>
       </div>
-
       <!-- Mitsubishi -->
       <div class="brand-item">
         <img src="https://i.ibb.co/zVFmqW8p/709-7096063-mitsubishi-air-conditioning-mitsubishi-heavy-industries-logo-png.jpg" alt="Mitsubishi AC" class="brand-logo-img">
         <span class="brand-name">Mitsubishi</span>
       </div>
-
       <!-- Gree -->
       <div class="brand-item">
         <img src="https://i.ibb.co/S4bg4DtV/logo.webp" alt="Gree AC" class="brand-logo-img">
         <span class="brand-name">Gree</span>
       </div>
-
       <!-- Midea -->
       <div class="brand-item">
         <img src="https://i.ibb.co/PG91SYsD/Midea-Logo.png" alt="Midea AC" class="brand-logo-img">
         <span class="brand-name">Midea</span>
       </div>
-
       <!-- Changhong -->
       <div class="brand-item">
         <img src="https://i.ibb.co/9kKFrZ7d/CHL-60028-03c2b5e6-5af1-4397-ad3a-e04b04c50b5b.png" alt="Changhong AC" class="brand-logo-img">
         <span class="brand-name">Changhong</span>
       </div>
-
       <!-- Polytron -->
       <div class="brand-item">
         <img src="https://i.ibb.co/tTYWgMCf/61dfc49b1fca06-06626864.png" alt="Polytron AC" class="brand-logo-img">
         <span class="brand-name">Polytron</span>
       </div>
-
       <!-- TCL -->
       <div class="brand-item">
         <img src="https://i.ibb.co/j9XbrB1x/tcl-share-e1676456859336.png" alt="TCL AC" class="brand-logo-img">
         <span class="brand-name">TCL</span>
       </div>
-
       <!-- Hisense -->
       <div class="brand-item">
         <img src="https://i.ibb.co/G4Nc6s8k/Hisense-logo-PNG-6-1024x576.webp" alt="Hisense AC" class="brand-logo-img">
         <span class="brand-name">Hisense</span>
       </div>
-
       <!-- AUX -->
       <div class="brand-item">
         <img src="https://i.ibb.co/PGVnQ3nq/Logo-AUX-Air-Conditioner-China-svg.png" alt="AUX AC" class="brand-logo-img">
         <span class="brand-name">AUX</span>
       </div>
-
       <!-- Denpoo -->
       <div class="brand-item">
         <img src="https://i.ibb.co/mr00FKr3/images.png" alt="Denpoo AC" class="brand-logo-img">
@@ -500,68 +534,99 @@
   </div>
 </section>
 
-<!-- RENTAL AC SECTION -->
+<!-- RENTAL AC SECTION (UPDATED) -->
 <section class="section-padding rental" id="rental">
   <div class="container">
     <div class="text-center">
-      <span class="section-tag">Sewa Harian & Bulanan</span>
+      <span class="section-tag">Sewa Bulanan</span>
       <h2 class="section-title">Daftar Harga Rental AC Sejuk Teknik</h2>
-      <p class="section-desc">Butuh AC dadakan untuk acara, kantor, atau rumah? Kami sediakan unit terawat dengan harga bersaing.</p>
+      <p class="section-desc">Butuh AC bulanan untuk kos atau kantor kecil? Kami sediakan unit terawat dengan harga hemat.</p>
     </div>
 
     <div class="pricing-wrapper">
       <!-- PK 0.5 -->
       <div class="price-card">
         <div class="price-unit">AC 0.5 PK</div>
-        <div class="price-type">Cocok untuk Ruangan Kecil (< 15m²)</div>
-        <div class="price-row"><span>Harian</span><span>Rp 75.000</span></div>
-        <div class="price-row"><span>Mingguan</span><span>Rp 450.000</span></div>
-        <div class="price-row"><span>Bulanan</span><span>Rp 900.000</span></div>
-        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%200.5%20PK" class="btn btn-outline" style="margin-top:24px; width:100%; justify-content:center;">Pesan Sekarang</a>
+        <div class="price-type">Cocok untuk Ruangan 3x3m</div>
+        
+        <!-- Harga Bulanan -->
+        <div class="price-row main-price">
+          <span>Sewa Bulanan</span>
+          <span>Rp 250.000</span>
+        </div>
+        
+        <!-- Biaya Pasang -->
+        <div class="price-row installation-fee">
+          <span>Biaya Pasang</span>
+          <span>Rp 350.000</span>
+        </div>
+
+        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%200.5%20PK" class="btn btn-outline">Pesan Sekarang</a>
+      </div>
+
+      <!-- PK 0.75 -->
+      <div class="price-card popular">
+        <div class="badge-popular">Paling Laris</div>
+        <div class="price-unit">AC 0.75 PK</div>
+        <div class="price-type">Cocok untuk Ruangan 3x4m</div>
+        
+        <!-- Harga Bulanan -->
+        <div class="price-row main-price">
+          <span>Sewa Bulanan</span>
+          <span>Rp 270.000</span>
+        </div>
+        
+        <!-- Biaya Pasang -->
+        <div class="price-row installation-fee">
+          <span>Biaya Pasang</span>
+          <span>Rp 350.000</span>
+        </div>
+
+        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%200.75%20PK" class="btn btn-primary">Pesan Sekarang</a>
       </div>
 
       <!-- PK 1 -->
-      <div class="price-card popular">
-        <div class="badge-popular">Paling Laris</div>
-        <div class="price-unit">AC 1 PK</div>
-        <div class="price-type">Standar Ruang Tamu / Kantor (15-25m²)</div>
-        <div class="price-row"><span>Harian</span><span>Rp 100.000</span></div>
-        <div class="price-row"><span>Mingguan</span><span>Rp 600.000</span></div>
-        <div class="price-row"><span>Bulanan</span><span>Rp 1.200.000</span></div>
-        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%201%20PK" class="btn btn-primary" style="margin-top:24px; width:100%; justify-content:center;">Pesan Sekarang</a>
-      </div>
-
-      <!-- PK 2 -->
       <div class="price-card">
-        <div class="price-unit">AC 2 PK</div>
-        <div class="price-type">Untuk Aula / Gedung Besar (> 25m²)</div>
-        <div class="price-row"><span>Harian</span><span>Rp 200.000</span></div>
-        <div class="price-row"><span>Mingguan</span><span>Rp 1.200.000</span></div>
-        <div class="price-row"><span>Bulanan</span><span>Rp 2.400.000</span></div>
-        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%202%20PK" class="btn btn-outline" style="margin-top:24px; width:100%; justify-content:center;">Pesan Sekarang</a>
+        <div class="price-unit">AC 1 PK</div>
+        <div class="price-type">Cocok untuk Ruangan 4x4m</div>
+        
+        <!-- Harga Bulanan -->
+        <div class="price-row main-price">
+          <span>Sewa Bulanan</span>
+          <span>Rp 300.000</span>
+        </div>
+        
+        <!-- Biaya Pasang -->
+        <div class="price-row installation-fee">
+          <span>Biaya Pasang</span>
+          <span>Rp 350.000</span>
+        </div>
+
+        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%201%20PK" class="btn btn-outline">Pesan Sekarang</a>
       </div>
     </div>
 
+    <!-- Fitur / Keunggulan Baru (UPDATED CONTENT) -->
     <div class="rental-features">
-      <div class="feature-tag">✅ Gratis Biaya Pemasangan</div>
-      <div class="feature-tag">✅ Free Maintenance Selama Sewa</div>
-      <div class="feature-tag">✅ Unit Standar Baru & Terawat</div>
-      <div class="feature-tag">✅ Teknisi Standby 24 Jam</div>
+      <div class="feature-tag">✅ Garansi 3 Bulan Full</div>
+      <div class="feature-tag">✅ Konsultasi Gratis</div>
+      <div class="feature-tag">✅ CS Selalu Siap Menjawab</div>
+      <div class="feature-tag">✅ Unit Terawat</div>
     </div>
 
+    <!-- Kenapa Memilih (Updated Content) -->
     <div style="margin-top: 60px; background: white; padding: 48px; border-radius: var(--radius); border: 1px solid var(--cyan-100);">
       <h3 style="margin-bottom: 24px; font-size: 1.5rem;">Kenapa Memilih Jasa Rental AC Sejuk Teknik?</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+        
+        <!-- Unit Selalu Ready DIHAPUS sesuai request -->
+        
         <div>
-          <h4 style="color: var(--cyan-700); margin-bottom: 12px; font-size: 1.2rem;">1. Unit Selalu Ready</h4>
-          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Kami memiliki stok unit yang memadai untuk acara mendadak atau kebutuhan kontrak jangka panjang tanpa batasan waktu.</p>
+          <h4 style="color: var(--cyan-700); margin-bottom: 12px; font-size: 1.2rem;">1. Harga Transparan</h4>
+          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Apa yang Anda lihat adalah apa yang Anda bayar. Biaya sewa bulanan dan pasang diinformasikan dengan jelas di awal.</p>
         </div>
         <div>
-          <h4 style="color: var(--cyan-700); margin-bottom: 12px; font-size: 1.2rem;">2. Harga Transparan</h4>
-          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Apa yang Anda lihat adalah apa yang Anda bayar. Tidak ada biaya tersembunyi saat pemasangan atau pengembalian.</p>
-        </div>
-        <div>
-          <h4 style="color: var(--cyan-700); margin-bottom: 12px; font-size: 1.2rem;">3. Pelayanan Cepat</h4>
+          <h4 style="color: var(--cyan-700); margin-bottom: 12px; font-size: 1.2rem;">2. Pelayanan Cepat</h4>
           <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Pemesanan melalui WhatsApp diproses cepat. Teknisi kami siap antar dan pasang di lokasi Anda segera.</p>
         </div>
       </div>
@@ -658,7 +723,7 @@
               <span class="icon-toggle">+</span>
             </button>
             <div class="faq-answer">
-              <p>Ya, harga rental yang tertera di website sudah termasuk gratis biaya antar, pasang, dan bongkar kembali di akhir masa sewa.</p>
+              <p>Harga sewa bulanan belum termasuk biaya instalasi. Ada biaya pemasangan awal sebesar Rp 350.000 yang dibayarkan sekali di awal.</p>
             </div>
           </div>
           <div class="faq-item">
@@ -667,7 +732,7 @@
               <span class="icon-toggle">+</span>
             </button>
             <div class="faq-answer">
-              <p>Minimal sewa adalah 3 hari untuk harian. Jika Anda sewa bulanan, pembayaran bisa diangsur DP 50% di awal.</p>
+              <p>Minimal sewa adalah 1 bulan. Jika Anda sewa bulanan, pembayaran bisa diangsur DP 50% di awal.</p>
             </div>
           </div>
         </div>
@@ -713,7 +778,8 @@
           <div class="contact-icon">⏰</div>
           <div>
             <strong>Jam Operasional:</strong>
-            <p style="color: var(--text-muted); font-size: 1rem;">Setiap Hari: 08:00 – 21:00 WIB</p>
+            <!-- UPDATED TIME -->
+            <p style="color: var(--text-muted); font-size: 1rem;">Setiap Hari: 09:00 – 19:00 WIB</p>
           </div>
         </div>
         
