@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Sejuk Teknik AC</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f9; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .total-row { font-weight: bold; background-color: #ecf0f1 !important; }
+        .pemasukan { color: green; font-weight: bold; }
+        .pengeluaran { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Catatan Keuangan: Sejuk Teknik AC</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Deskripsi Layanan/Barang</th>
+                <th>Jenis</th>
+                <th>Jumlah (Rp)</th>
+                <th>Persentase (%)</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Data Contoh -->
+            <tr>
+                <td>Service AC Split (3 Unit)</td>
+                <td class="pemasukan">Pemasukan</td>
+                <td>450000</td>
+                <td class="pct"></td>
+            </tr>
+            <tr>
+                <td>Beli Freon R32</td>
+                <td class="pengeluaran">Pengeluaran</td>
+                <td>250000</td>
+                <td class="pct"></td>
+            </tr>
+            <tr>
+                <td>Pasang AC Baru</td>
+                <td class="pemasukan">Pemasukan</td>
+                <td>350000</td>
+                <td class="pct"></td>
+            </tr>
+            <tr>
+                <td>Beli Kapasitor</td>
+                <td class="pengeluaran">Pengeluaran</td>
+                <td>75000</td>
+                <td class="pct"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="total-row">
+                <td colspan="2">Total Keseluruhan (Bruto)</td>
+                <td id="total-amount">0</td>
+                <td>100%</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<script>
+    function calculateStats() {
+        const rows = document.querySelectorAll('#table-body tr');
+        let total = 0;
+
+        // Hitung Total Dulu
+        rows.forEach(row => {
+            total += parseFloat(row.cells[2].innerText);
+        });
+
+        document.getElementById('total-amount').innerText = total.toLocaleString('id-ID');
+
+        // Hitung Persentase per baris
+        rows.forEach(row => {
+            let val = parseFloat(row.cells[2].innerText);
+            let percentage = ((val / total) * 100).toFixed(1);
+            row.cells[3].innerText = percentage + '%';
+            
+            // Format angka di kolom jumlah ke rupiah
+            row.cells[2].innerText = val.toLocaleString('id-ID');
+        });
+    }
+
+    calculateStats();
+</script>
+
+</body>
+</html>
