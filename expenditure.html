@@ -2,43 +2,211 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nota Pengeluaran Sejuk Teknik</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sistem Manajemen Sejuk Teknik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
-        .container { max-width: 500px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); auto; }
-        h2 { text-align: center; color: #333; margin-bottom: 20px; }
-        input, button { width: 100%; padding: 12px; margin: 8px 0; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box; font-size: 16px; }
-        button { background: #007bff; color: white; border: none; cursor: pointer; font-weight: bold; }
-        button:hover { background: #0056b3; }
-        .list-nota { margin-top: 25px; }
-        .item-nota { background: #f9f9f9; padding: 12px; margin: 8px 0; border-radius: 6px; border-left: 5px solid #007bff; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .total-text { font-size: 16px; color: #d9534f; font-weight: bold; }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --danger: #ef4444;
+            --success: #10b981;
+            --bg: #f1f5f9;
+            --card: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 12px;
+        }
+
+        * { box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding-bottom: 80px; }
+
+        /* --- Header --- */
+        header { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 24px 20px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3); text-align: center; }
+        header h1 { margin: 0; font-size: 1.5rem; font-weight: 700; }
+        header p { margin: 5px 0 0; opacity: 0.9; font-size: 0.9rem; }
+
+        /* --- Layout Utama --- */
+        .container { max-width: 480px; margin: 0 auto; padding: 0 15px; }
+
+        /* --- Kartu Kas (Uang Saat Ini) --- */
+        .cash-card { background: var(--card); margin: -25px 0 15px; padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); position: relative; z-index: 10; }
+        .cash-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; color: var(--text-muted); }
+        .cash-big { font-size: 1.5rem; font-weight: 800; color: var(--success); margin: 5px 0 15px; }
+        
+        .input-cash-wrapper { display: flex; gap: 8px; }
+        .input-cash { flex: 1; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; }
+        .btn-cash { background: var(--success); color: white; border: none; padding: 0 20px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+        .btn-cash:disabled { background: #cbd5e1; cursor: not-allowed; }
+
+        /* --- Form Input --- */
+        .form-card { background: var(--card); padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 20px; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; }
+        .form-input { width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; transition: 0.2s; }
+        .form-input:focus { border-color: var(--primary); background: #f8fafc; }
+        
+        .btn-add { width: 100%; background: var(--primary); color: white; border: none; padding: 14px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; }
+        .btn-add:active { transform: scale(0.98); }
+
+        /* --- List & Grouping --- */
+        .history-section { margin-bottom: 25px; }
+        .date-header { 
+            background: #e0f2fe; color: #0369a1; 
+            padding: 8px 12px; border-radius: 6px; 
+            font-weight: 700; font-size: 0.9rem; 
+            margin-bottom: 10px; display: flex; justify-content: space-between;
+        }
+
+        .item-row { 
+            background: var(--card); padding: 15px; margin-bottom: 10px; border-radius: var(--radius); 
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05); border-left: 4px solid var(--primary); 
+            display: flex; justify-content: space-between; align-items: center; 
+        }
+        .item-info h4 { margin: 0 0 4px; font-size: 1rem; }
+        .item-info p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+        .item-price { font-weight: 700; color: var(--primary); font-size: 1rem; }
+        
+        .btn-trash { background: #fee2e2; color: var(--danger); border: none; width: 36px; height: 36px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-left: 10px; flex-shrink: 0; }
+        .btn-trash:hover { background: #fecaca; }
+
+        /* --- Modal 3-Step Hapus --- */
+        .modal-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.5); z-index: 999; display: none; 
+            align-items: center; justify-content: center; backdrop-filter: blur(2px);
+        }
+        .modal-content { 
+            background: white; width: 90%; max-width: 400px; padding: 24px; 
+            border-radius: 16px; text-align: center; animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        @keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        
+        .modal-step { display: none; }
+        .modal-step.active { display: block; }
+        .modal-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+        .modal-desc { color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+        
+        .modal-btns { display: flex; gap: 10px; justify-content: center; }
+        .btn-modal { padding: 10px 20px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; flex: 1; }
+        .btn-cancel { background: #e2e8f0; color: var(--text); }
+        .btn-danger { background: var(--danger); color: white; }
+        .btn-danger:disabled { background: #fca5a5; cursor: not-allowed; }
+
+        .delete-confirm-input { width: 100%; padding: 12px; border: 2px solid var(--danger); border-radius: 8px; margin-bottom: 15px; text-align: center; font-weight: bold; }
+
+        /* Toast */
+        #toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 12px 24px; border-radius: 30px; font-size: 0.9rem; z-index: 1000; opacity: 0; pointer-events: none; transition: 0.3s; }
+        #toast.show { opacity: 1; bottom: 40px; }
+
+        /* Helper Colors */
+        .text-red { color: var(--danger); }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Nota Sejuk Teknik</h2>
-    <form id="notaForm">
-        <input type="text" id="namaBarang" placeholder="Nama Barang (Pipa, Baut, dll)" required>
-        <input type="number" id="hargaBarang" placeholder="Harga Satuan (Rp)" required>
-        <input type="number" id="jumlahBarang" placeholder="Jumlah Barang" required>
-        <button type="submit">Tambah Pengeluaran</button>
-    </form>
+<header>
+    <h1>Sejuk Teknik</h1>
+    <p id="clockDisplay">Loading Time...</p>
+</header>
 
-    <div class="list-nota" id="logNota">
-        <h3>Riwayat Pengeluaran:</h3>
-        <!-- Data Realtime Database masuk di sini -->
+<div class="container">
+    <!-- KARTU KAS DINAMIS -->
+    <div class="cash-card" id="cashCard">
+        <div class="cash-row">
+            <span>Kas Awal:</span>
+            <span id="startCashDisplay">Rp 0</span>
+        </div>
+        <div class="cash-row">
+            <span>Pengeluaran Hari Ini:</span>
+            <span class="text-red" id="todayExpenseDisplay">Rp 0</span>
+        </div>
+        <div class="cash-big">Sisa Kas: <span id="remainingCashDisplay">Rp 0</span></div>
+        
+        <!-- Input Setor Kas (Hanya muncul jika belum setor hari ini) -->
+        <div id="cashInputArea" style="display:none; border-top: 1px solid #eee; padding-top: 15px;">
+            <p style="font-size:0.85rem; margin:0 0 8px; font-weight:600;">Setor Kas Awal Hari Ini:</p>
+            <div class="input-cash-wrapper">
+                <input type="number" id="inputModalKas" class="input-cash" placeholder="Jumlah Uang...">
+                <button id="btnSetorKas" class="btn-cash">Setor</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORM INPUT -->
+    <div class="form-card">
+        <form id="notaForm">
+            <div class="form-group">
+                <label>Nama Barang / Jasa</label>
+                <input type="text" id="namaBarang" class="form-input" placeholder="Contoh: Freon AC 1 PK" required autocomplete="off">
+            </div>
+            <div style="display:flex; gap:10px;">
+                <div class="form-group" style="flex:1;">
+                    <label>Harga (Rp)</label>
+                    <input type="number" id="hargaBarang" class="form-input" placeholder="0" required>
+                </div>
+                <div class="form-group" style="flex:0.5;">
+                    <label>Jml</label>
+                    <input type="number" id="jumlahBarang" class="form-input" value="1" required>
+                </div>
+            </div>
+            <button type="submit" class="btn-add">
+                <span>+ Catat Pengeluaran</span>
+            </button>
+        </form>
+    </div>
+
+    <!-- DAFTAR TRANSAKSI (Dikelompokkan) -->
+    <div id="listContainer">
+        <!-- Data akan dirender di sini via JS -->
     </div>
 </div>
 
-<!-- Firebase App dan Realtime Database SDK -->
+<!-- MODAL HAPUS (3 Steps) -->
+<div id="deleteModal" class="modal-overlay">
+    <div class="modal-content">
+        <!-- Step 1: Konfirmasi Awal -->
+        <div id="delStep1" class="modal-step active">
+            <div class="modal-title">Hapus Data?</div>
+            <p class="modal-desc">Anda akan menghapus item <b id="delItemName1">...</b>. Tindakan ini tidak bisa dibatalkan.</p>
+            <div class="modal-btns">
+                <button class="btn-modal btn-cancel" onclick="closeModal()">Batal</button>
+                <button class="btn-modal btn-danger" onclick="goToStep2()">Ya, Hapus</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Konfirmasi Kedua -->
+        <div id="delStep2" class="modal-step">
+            <div class="modal-title text-red">Yakin Benar?</div>
+            <p class="modal-desc">Apakah Anda benar-benar yakin ingin menghapus data ini dari database server?</p>
+            <div class="modal-btns">
+                <button class="btn-modal btn-cancel" onclick="goToStep1()">Batal</button>
+                <button class="btn-modal btn-danger" onclick="goToStep3()">SAYA YAKIN</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Ketik Nama -->
+        <div id="delStep3" class="modal-step">
+            <div class="modal-title">Verifikasi Akhir</div>
+            <p class="modal-desc">Ketik nama barang <b><span id="delItemName2"></span></b> untuk menghapus permanen.</p>
+            <input type="text" id="deleteVerifyInput" class="delete-confirm-input" placeholder="Ketik nama disini..." oninput="checkDeleteInput()">
+            <div class="modal-btns">
+                <button class="btn-modal btn-cancel" onclick="closeModal()">Batal</button>
+                <button id="btnFinalDelete" class="btn-modal btn-danger" disabled onclick="executeDelete()">HAPUS PERMANEN</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="toast">Notifikasi</div>
+
+<!-- FIREBASE & LOGIC -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+  import { getDatabase, ref, push, onValue, remove, set, serverTimestamp, get, update } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-  // Config milik Sejuk Teknik
+  // --- KONFIGURASI ---
   const firebaseConfig = {
     apiKey: "AIzaSyDtLHSz7-KU97ALJTQvLRQTG5yj7brcsvc",
     authDomain: "sejuk-teknik.firebaseapp.com",
@@ -50,63 +218,348 @@
     measurementId: "G-EDJ6Y6J7GC"
   };
 
-  // Inisialisasi Firebase
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-  const dbRef = ref(db, "pengeluaran");
 
-  // Simpan data saat form di-submit
-  document.getElementById("notaForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const nama = document.getElementById("namaBarang").value;
-    const harga = parseInt(document.getElementById("hargaBarang").value);
-    const jumlah = parseInt(document.getElementById("jumlahBarang").value);
-    const total = harga * jumlah;
+  // Referensi Database
+  const dbExpenses = ref(db, "pengeluaran");
+  const dbDailyCash = ref(db, "daily_cash"); // Menyimpan kas harian
+  const dbHistory = ref(db, "history_reports"); // Menyimpan laporan tutup hari
 
-    // Push data ke node 'pengeluaran'
-    push(dbRef, {
-      nama_barang: nama,
-      harga: harga,
-      jumlah: jumlah,
-      total: total,
-      timestamp: Date.now()
-    }).then(() => {
-      document.getElementById("notaForm").reset();
-    }).catch((err) => {
-      alert("Error: " + err.message);
-    });
-  });
+  // State Global
+  let currentDeleteKey = null;
+  let currentDeleteName = "";
+  let todayDateString = ""; // Format YYYY-MM-DD
+  let dailyCashData = 0;
+  let totalExpenseToday = 0;
 
-  // Baca data secara Realtime
-  onValue(dbRef, (snapshot) => {
-    const logNota = document.getElementById("logNota");
-    logNota.innerHTML = "<h3>Riwayat Pengeluaran:</h3>";
+  // --- FUNGSI UTILITAS ---
 
-    if (snapshot.exists()) {
-      const dataArray = [];
+  // Format Rupiah
+  const formatRupiah = (num) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(num);
+
+  // Dapatkan Tanggal Hari Ini dalam UTC (Waktu Server Global)
+  const getTodayUTC = () => {
+    const now = new Date();
+    // Menggunakan UTC untuk konsistensi global sesuai permintaan
+    return now.getUTCFullYear() + "-" + 
+           String(now.getUTCMonth() + 1).padStart(2, '0') + "-" + 
+           String(now.getUTCDate()).padStart(2, '0');
+  };
+
+  // Format Tanggal Indonesia untuk Header (Senin, 27 Oktober 2023)
+  const formatDateIndo = (timestamp) => {
+    // Timestamp dari server adalah miliseconds, buat Date object
+    const date = new Date(timestamp);
+    return new Intl.DateTimeFormat('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+  };
+
+  // Update Jam Realtime (Server Time Simulation)
+  setInterval(() => {
+      const now = new Date();
+      const options = { timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit', second: '2-digit' }; // Tampilkan jam WIB agar user paham
+      // Namun data disimpan berdasarkan UTC logic di atas untuk "Global"
+      document.getElementById("clockDisplay").textContent = now.toLocaleTimeString('id-ID', options) + " WIB";
+  }, 1000);
+
+  // --- LOGIKA UTAMA ---
+
+  // 1. Cek Status Kas Harian (Pergantian Hari Logic)
+  async function checkDailyStatus() {
+      todayDateString = getTodayUTC();
       
-      // Ambil data dan ubah ke array agar bisa diurutkan dari yang terbaru
-      snapshot.forEach((childSnapshot) => {
-        dataArray.push(childSnapshot.data());
-      });
+      // Cek apakah sudah ada kas untuk hari ini
+      const snapshot = await get(dbDailyCash);
+      let hasTodayCash = false;
 
-      // Urutkan berdasarkan waktu paling baru di atas
-      dataArray.sort((a, b) => b.timestamp - a.timestamp);
+      if (snapshot.exists()) {
+          const data = snapshot.val();
+          // Cek apakah key hari ini ada
+          if (data[todayDateString]) {
+              hasTodayCash = true;
+              dailyCashData = data[todayDateString];
+          } else {
+              // Ada data kas, tapi bukan hari ini. Artinya pergantian hari terjadi.
+              // Pindahkan data kemarin ke history
+              const dates = Object.keys(data).sort(); // Ambil tanggal tersedia
+              const lastDate = dates[dates.length - 1]; // Tanggal terakhir (kemarin)
+              if(lastDate) {
+                  const lastCash = data[lastDate];
+                  await archiveYesterday(lastDate, lastCash);
+              }
+          }
+      }
 
-      dataArray.forEach((data) => {
-        const div = document.createElement("div");
-        div.className = "item-nota";
-        div.innerHTML = `
-          <b>${data.nama_barang}</b> (x${data.jumlah})<br>
-          Harga Satuan: Rp ${data.harga.toLocaleString('id-ID')}<br>
-          <span class="total-text">Total: Rp ${data.total.toLocaleString('id-ID')}</span>
-        `;
-        logNota.appendChild(div);
-      });
-    } else {
-      logNota.innerHTML += "<p style='color: #666;'>Belum ada pengeluaran hari ini.</p>";
-    }
+      // Update UI berdasarkan status
+      const cashInputArea = document.getElementById("cashInputArea");
+      if (!hasTodayCash) {
+          cashInputArea.style.display = "block";
+          document.getElementById("startCashDisplay").textContent = "Rp 0";
+          dailyCashData = 0;
+      } else {
+          cashInputArea.style.display = "none";
+          document.getElementById("startCashDisplay").textContent = formatRupiah(dailyCashData);
+      }
+      updateCashDisplay();
+  }
+
+  // 2. Arsipkan Laporan Kemarin
+  async function archiveYesterday(dateStr, startAmount) {
+      // Hitung total pengeluaran pada tanggal tsb
+      const expensesRef = ref(db, "pengeluaran");
+      const snapExp = await get(expensesRef);
+      let totalExp = 0;
+
+      if (snapExp.exists()) {
+          snapExp.forEach(child => {
+              const item = child.val();
+              const itemDate = new Date(item.timestamp);
+              const itemDateStr = itemDate.getUTCFullYear() + "-" + String(itemDate.getUTCMonth()+1).padStart(2,'0') + "-" + String(itemDate.getUTCDate()).padStart(2,'0');
+              
+              if (itemDateStr === dateStr) {
+                  totalExp += (item.total || 0);
+              }
+          });
+      }
+
+      const finalBalance = startAmount - totalExp;
+
+      // Simpan ke history_reports
+      const reportData = {
+          date: dateStr,
+          start_cash: startAmount,
+          total_expense: totalExp,
+          final_balance: finalBalance,
+          archived_at: serverTimestamp()
+      };
+      
+      await update(ref(db, "history_reports/" + dateStr), reportData);
+      // Hapus cash entry lama agar bersih
+      await remove(ref(db, "daily_cash/" + dateStr));
+      
+      console.log("Arsip kemarin selesai:", reportData);
+  }
+
+  // 3. Update Tampilan Kas (Kas Awal - Pengeluaran)
+  function updateCashDisplay() {
+      const sisa = dailyCashData - totalExpenseToday;
+      document.getElementById("todayExpenseDisplay").textContent = formatRupiah(totalExpenseToday);
+      document.getElementById("remainingCashDisplay").textContent = formatRupiah(sisa);
+      
+      if (sisa < 0) {
+          document.getElementById("remainingCashDisplay").style.color = "var(--danger)";
+      } else {
+          document.getElementById("remainingCashDisplay").style.color = "var(--success)";
+      }
+  }
+
+  // --- INIT & LISTENERS ---
+
+  checkDailyStatus(); // Jalankan saat load
+
+  // Setor Kas
+  document.getElementById("btnSetorKas").addEventListener("click", () => {
+      const val = parseInt(document.getElementById("inputModalKas").value);
+      if (val > 0) {
+          set(ref(db, "daily_cash/" + todayDateString), val)
+          .then(() => {
+              document.getElementById("inputModalKas").value = "";
+              showToast("Kas Hari Ini Disetor!");
+          });
+      }
   });
+
+  // Listener Kas (Realtime update jika user di device lain setor kas)
+  onValue(dbDailyCash, (snap) => {
+      if(snap.exists() && snap.val()[todayDateString]) {
+          dailyCashData = snap.val()[todayDateString];
+          document.getElementById("startCashDisplay").textContent = formatRupiah(dailyCashData);
+          document.getElementById("cashInputArea").style.display = "none";
+          updateCashDisplay();
+      }
+  });
+
+  // Submit Form (Tambah Pengeluaran)
+  document.getElementById("notaForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nama = document.getElementById("namaBarang").value.trim();
+      const harga = parseInt(document.getElementById("hargaBarang").value);
+      const jumlah = parseInt(document.getElementById("jumlahBarang").value);
+      
+      if (!nama || isNaN(harga) || isNaN(jumlah)) return;
+
+      push(dbExpenses, {
+          nama_barang: nama,
+          harga: harga,
+          jumlah: jumlah,
+          total: harga * jumlah,
+          timestamp: serverTimestamp() // Waktu Server Global
+      }).then(() => {
+          document.getElementById("notaForm").reset();
+          document.getElementById("namaBarang").focus();
+          showToast("Data Tersimpan!");
+      });
+  });
+
+  // Listener Realtime Pengeluaran (Grouping Logic)
+  onValue(dbExpenses, (snapshot) => {
+      const container = document.getElementById("listContainer");
+      container.innerHTML = "";
+      
+      let groupedData = {};
+      let todayTotal = 0;
+
+      if (snapshot.exists()) {
+          snapshot.forEach((child) => {
+              const item = child.val();
+              item.key = child.key;
+              
+              // Gunakan timestamp server. 
+              // Note: serverTimestamp kadang object placeholder saat pertama kali write, 
+              // tapi saat onValue read, dia sudah number (millisec).
+              const ts = item.timestamp; 
+              
+              if (!ts) return; // Skip jika timestamp belum siap
+
+              const dateObj = new Date(ts);
+              // Gunakan UTC untuk grouping key agar konsisten global
+              const dateKey = dateObj.getUTCFullYear() + "-" + 
+                              String(dateObj.getUTCMonth() + 1).padStart(2, '0') + "-" + 
+                              String(dateObj.getUTCDate()).padStart(2, '0');
+
+              if (!groupedData[dateKey]) groupedData[dateKey] = [];
+              groupedData[dateKey].push(item);
+
+              // Hitung total hari ini
+              if (dateKey === todayDateString) {
+                  todayTotal += item.total;
+              }
+          });
+      }
+
+      totalExpenseToday = todayTotal;
+      updateCashDisplay();
+
+      // Render Grouped Data
+      // Sort Tanggal (Key) dari yang Terbaru
+      const sortedDates = Object.keys(groupedData).sort().reverse();
+
+      if (sortedDates.length === 0) {
+          container.innerHTML = `<div style="text-align:center; padding:20px; color:#999;">Belum ada riwayat transaksi.</div>`;
+          return;
+      }
+
+      sortedDates.forEach(date => {
+          const items = groupedData[date];
+          // Sort item dalam hari: Terbaru di atas
+          items.sort((a, b) => b.timestamp - a.timestamp);
+
+          // Buat Header Group
+          const section = document.createElement("div");
+          section.className = "history-section";
+          
+          // Header Tampilan (Indo Format)
+          const headerDate = new Date(date); // date string YYYY-MM-DD
+          // Kita gunakan waktu siang (12:00 UTC) agar konversi ke local tidak geser tanggal
+          headerDate.setUTCHours(12,0,0,0); 
+          
+          const indoDateStr = new Intl.DateTimeFormat('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(headerDate);
+
+          section.innerHTML = `<div class="date-header">${indoDateStr}</div>`;
+
+          // Render Items
+          items.forEach(item => {
+              const row = document.createElement("div");
+              row.className = "item-row";
+              row.innerHTML = `
+                  <div class="item-info">
+                      <h4>${item.nama_barang}</h4>
+                      <p>${item.jumlah} x ${formatRupiah(item.harga)}</p>
+                  </div>
+                  <div style="display:flex; align-items:center;">
+                      <div class="item-price">${formatRupiah(item.total)}</div>
+                      <button class="btn-trash" onclick="initiateDelete('${item.key}', '${item.nama_barang.replace(/'/g, "\\'")}')">
+                          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                      </button>
+                  </div>
+              `;
+              section.appendChild(row);
+          });
+
+          container.appendChild(section);
+      });
+  });
+
+  // --- LOGIKA MODAL HAPUS (3 Steps) ---
+  
+  // Export fungsi ke window agar bisa dipanggil onclick HTML
+  window.initiateDelete = (key, name) => {
+      currentDeleteKey = key;
+      currentDeleteName = name;
+      document.getElementById("delItemName1").textContent = name;
+      document.getElementById("delItemName2").textContent = name;
+      
+      document.getElementById("deleteModal").style.display = "flex";
+      document.getElementById("delStep1").classList.add("active");
+      document.getElementById("delStep2").classList.remove("active");
+      document.getElementById("delStep3").classList.remove("active");
+      
+      document.getElementById("deleteVerifyInput").value = "";
+      document.getElementById("btnFinalDelete").disabled = true;
+  };
+
+  window.closeModal = () => {
+      document.getElementById("deleteModal").style.display = "none";
+      currentDeleteKey = null;
+  };
+
+  window.goToStep2 = () => {
+      document.getElementById("delStep1").classList.remove("active");
+      document.getElementById("delStep2").classList.add("active");
+  };
+
+  window.goToStep1 = () => {
+      document.getElementById("delStep2").classList.remove("active");
+      document.getElementById("delStep1").classList.add("active");
+  };
+
+  window.goToStep3 = () => {
+      document.getElementById("delStep2").classList.remove("active");
+      document.getElementById("delStep3").classList.add("active");
+      setTimeout(() => document.getElementById("deleteVerifyInput").focus(), 100);
+  };
+
+  window.checkDeleteInput = () => {
+      const inputVal = document.getElementById("deleteVerifyInput").value.trim();
+      // Case insensitive comparison
+      if (inputVal.toLowerCase() === currentDeleteName.toLowerCase()) {
+          document.getElementById("btnFinalDelete").disabled = false;
+      } else {
+          document.getElementById("btnFinalDelete").disabled = true;
+      }
+  };
+
+  window.executeDelete = () => {
+      if (currentDeleteKey) {
+          remove(ref(db, "pengeluaran/" + currentDeleteKey))
+          .then(() => {
+              showToast("Item berhasil dihapus permanen.");
+              closeModal();
+          })
+          .catch(err => {
+              alert("Gagal menghapus: " + err.message);
+              closeModal();
+          });
+      }
+  };
+
+  // Toast
+  function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 3000);
+  }
 </script>
 
 </body>
