@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota Pengeluaran Sejuk Teknik</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
+        .container { max-width: 500px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); auto; }
+        h2 { text-align: center; color: #333; margin-bottom: 20px; }
+        input, button { width: 100%; padding: 12px; margin: 8px 0; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box; font-size: 16px; }
+        button { background: #007bff; color: white; border: none; cursor: pointer; font-weight: bold; }
+        button:hover { background: #0056b3; }
+        .list-nota { margin-top: 25px; }
+        .item-nota { background: #f9f9f9; padding: 12px; margin: 8px 0; border-radius: 6px; border-left: 5px solid #007bff; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .total-text { font-size: 16px; color: #d9534f; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Nota Sejuk Teknik</h2>
+    <form id="notaForm">
+        <input type="text" id="namaBarang" placeholder="Nama Barang (Pipa, Baut, dll)" required>
+        <input type="number" id="hargaBarang" placeholder="Harga Satuan (Rp)" required>
+        <input type="number" id="jumlahBarang" placeholder="Jumlah Barang" required>
+        <button type="submit">Tambah Pengeluaran</button>
+    </form>
+
+    <div class="list-nota" id="logNota">
+        <h3>Riwayat Pengeluaran:</h3>
+        <!-- Data Realtime Database masuk di sini -->
+    </div>
+</div>
+
+<!-- Firebase App dan Realtime Database SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+  // Config milik Sejuk Teknik
+  const firebaseConfig = {
+    apiKey: "AIzaSyDtLHSz7-KU97ALJTQvLRQTG5yj7brcsvc",
+    authDomain: "sejuk-teknik.firebaseapp.com",
+    databaseURL: "https://sejuk-teknik-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "sejuk-teknik",
+    storageBucket: "sejuk-teknik.firebasestorage.app",
+    messagingSenderId: "733860478343",
+    appId: "1:733860478343:web:172838a08e702d129ae722",
+    measurementId: "G-EDJ6Y6J7GC"
+  };
+
+  // Inisialisasi Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const dbRef = ref(db, "pengeluaran");
+
+  // Simpan data saat form di-submit
+  document.getElementById("notaForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nama = document.getElementById("namaBarang").value;
+    const harga = parseInt(document.getElementById("hargaBarang").value);
+    const jumlah = parseInt(document.getElementById("jumlahBarang").value);
+    const total = harga * jumlah;
+
+    // Push data ke node 'pengeluaran'
+    push(dbRef, {
+      nama_barang: nama,
+      harga: harga,
+      jumlah: jumlah,
+      total: total,
+      timestamp: Date.now()
+    }).then(() => {
+      document.getElementById("notaForm").reset();
+    }).catch((err) => {
+      alert("Error: " + err.message);
+    });
+  });
+
+  // Baca data secara Realtime
+  onValue(dbRef, (snapshot) => {
+    const logNota = document.getElementById("logNota");
+    logNota.innerHTML = "<h3>Riwayat Pengeluaran:</h3>";
+
+    if (snapshot.exists()) {
+      const dataArray = [];
+      
+      // Ambil data dan ubah ke array agar bisa diurutkan dari yang terbaru
+      snapshot.forEach((childSnapshot) => {
+        dataArray.push(childSnapshot.data());
+      });
+
+      // Urutkan berdasarkan waktu paling baru di atas
+      dataArray.sort((a, b) => b.timestamp - a.timestamp);
+
+      dataArray.forEach((data) => {
+        const div = document.createElement("div");
+        div.className = "item-nota";
+        div.innerHTML = `
+          <b>${data.nama_barang}</b> (x${data.jumlah})<br>
+          Harga Satuan: Rp ${data.harga.toLocaleString('id-ID')}<br>
+          <span class="total-text">Total: Rp ${data.total.toLocaleString('id-ID')}</span>
+        `;
+        logNota.appendChild(div);
+      });
+    } else {
+      logNota.innerHTML += "<p style='color: #666;'>Belum ada pengeluaran hari ini.</p>";
+    }
+  });
+</script>
+
+</body>
+</html>
