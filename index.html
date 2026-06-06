@@ -11,7 +11,7 @@
 <meta name="google-site-verification" content="qXZj7IrpE9Tu8PCYVs0zXFtM87taOcKEkm2kQor0cDw" />
 
 <!-- Favicon / Browser Icon (UPDATED) -->
-<link rel="icon" type="image/jpeg" href="https://i.ibb.co.com/qMfqRXm0/15825173-d48c-4cd8-a166-c6d4fe79d0da.jpg">
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co.com/qMfqRXm0/15825173_d48c-4cd8-a166-c6d4fe79d0da.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -34,7 +34,7 @@
     --white: #ffffff;
     --dark: #0a1628;
     --text-main: #0f172a;
-    --text-muted: #475569; /* Warna teks paragraf yang disesuaikan */
+    --text-muted: #475569;
     --radius: 16px;
     --radius-sm: 8px;
     --shadow: 0 4px 24px rgba(6, 182, 212, 0.12);
@@ -47,29 +47,33 @@
     font-family: 'DM Sans', sans-serif;
     background: var(--sky-50);
     color: var(--text-main);
-    line-height: 1.7; /* Line height diperbesar untuk kenyamanan baca */
+    line-height: 1.7;
     overflow-x: hidden;
-    font-size: 16px; /* Ukuran font dasar yang jelas */
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
   }
 
   /* ── UTILITIES ── */
   .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
-  .section-padding { padding: 100px 0; } /* Padding diperlebar untuk napas lebih lega */
+  .section-padding { padding: 100px 0; }
   .text-center { text-align: center; }
   
   .btn { 
     display: inline-flex; 
     align-items: center; 
-    justify-content: center; /* Teks tombol selalu di tengah */
+    justify-content: center;
     gap: 8px; 
-    padding: 14px 28px; /* Padding tombol diperbesar sedikit */
+    padding: 14px 28px;
     border-radius: 100px; 
-    font-weight: 700; /* Font weight tombol ditebalkan */
+    font-weight: 700; 
     text-decoration: none; 
     transition: 0.3s; 
     cursor: pointer; 
     border: none; 
-    letter-spacing: 0.02em; /* Spasi huruf tombol */
+    letter-spacing: 0.02em;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    -webkit-tap-highlight-color: transparent;
   }
   
   .btn-primary { background: var(--cyan-500); color: white; box-shadow: 0 4px 12px rgba(6,182,212,0.3); }
@@ -78,35 +82,35 @@
   .btn-outline { background: transparent; border: 2px solid var(--cyan-500); color: var(--cyan-700); }
   .btn-outline:hover { background: var(--cyan-50); border-color: var(--cyan-600); color: var(--cyan-800); }
 
-  /* ── TYPOGRAPHY (UPDATED) ── */
+  /* ── TYPOGRAPHY ── */
   h1, h2, h3, h4 { 
     font-family: 'Syne', sans-serif; 
     color: var(--dark); 
-    line-height: 1.25; /* Line heading lebih rapat agar elegan */
-    letter-spacing: -0.03em; /* Letter spacing negatif untuk kesan modern */
+    line-height: 1.25;
+    letter-spacing: -0.03em;
   }
   
   .section-tag { 
     font-size: 0.85rem; 
     font-weight: 700; 
     color: var(--cyan-600); 
-    letter-spacing: 0.1em; /* Spasi lebar untuk label/kapsul */
+    letter-spacing: 0.1em;
     text-transform: uppercase; 
-    margin-bottom: 16px; /* Jarak ke judul diperbesar */
+    margin-bottom: 16px;
     display: inline-block; 
   }
   
   .section-title { 
-    font-size: clamp(2rem, 5vw, 3rem); /* Ukuran font responsif yang lebih fleksibel */
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 800; 
     margin-bottom: 24px; 
   }
   
   .section-desc { 
-    font-size: 1.125rem; /* Ukuran deskripsi sedikit lebih besar */
+    font-size: 1.125rem;
     color: var(--text-muted); 
-    max-width: 650px; /* Lebar maksimal diperlebar sedikit */
-    margin: 0 auto 48px; /* Jarak bawah lebih lega */
+    max-width: 650px;
+    margin: 0 auto 48px;
     line-height: 1.8;
   }
 
@@ -115,6 +119,7 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: rgba(255,255,255,0.95);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--cyan-100);
     padding: 16px 5%;
     display: flex; align-items: center; justify-content: space-between;
@@ -131,9 +136,9 @@
     letter-spacing: -0.02em;
   }
   .nav-links { display: flex; gap: 32px; list-style: none; }
-  .nav-links a { text-decoration: none; font-size: 1rem; font-weight: 500; color: var(--text-muted); transition: 0.2s; }
+  .nav-links a { text-decoration: none; font-size: 1rem; font-weight: 500; color: var(--text-muted); transition: 0.2s; -webkit-tap-highlight-color: transparent; }
   .nav-links a:hover, .nav-links a.active { color: var(--cyan-600); font-weight: 700; }
-  .mobile-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--cyan-700); }
+  .mobile-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--cyan-700); -webkit-tap-highlight-color: transparent; padding: 8px; }
 
   /* ── HERO ── */
   .hero {
@@ -172,8 +177,9 @@
   .hero-stats { display: flex; gap: 48px; margin-top: 60px; padding-top: 32px; border-top: 1px solid rgba(6, 182, 212, 0.2); }
   .stat-item strong { display: block; font-family: 'Syne', sans-serif; font-size: 2rem; color: var(--cyan-700); font-weight: 800; line-height: 1; }
   .stat-item span { font-size: 0.9rem; color: var(--text-muted); margin-top: 8px; display: block; font-weight: 500; }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
 
-  /* ── BRANDS (UPDATED TYPOGRAPHY) ── */
+  /* ── BRANDS ── */
   .brands { background: var(--white); padding: 80px 0; border-bottom: 1px solid var(--cyan-100); }
   .brands-grid { 
     display: grid; 
@@ -211,12 +217,12 @@
   }
 
   .brand-name {
-    font-family: 'DM Sans', sans-serif; /* Mengubah font body agar lebih seragam */
+    font-family: 'DM Sans', sans-serif;
     font-weight: 600;
-    font-size: 0.8rem; /* Ukuran diperkecil agar lebih proporsional */
+    font-size: 0.8rem;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.08em; /* Spasi huruf diperlebar agar UPPERCASE enak dibaca */
+    letter-spacing: 0.08em;
     transition: color 0.3s;
   }
 
@@ -230,10 +236,10 @@
   .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--cyan-300); }
   .service-icon { width: 64px; height: 64px; background: var(--cyan-100); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 24px; }
   .service-card h3 { font-size: 1.35rem; margin-bottom: 12px; }
-  .service-card p { color: var(--text-muted); margin-bottom: 24px; font-size: 1rem; line-height: 1.6; flex-grow: 1; } /* Flex grow agar tombol rata bawah */
+  .service-card p { color: var(--text-muted); margin-bottom: 24px; font-size: 1rem; line-height: 1.6; flex-grow: 1; }
   .service-link { color: var(--cyan-600); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: 0.95rem; }
 
-  /* ── RENTAL PRICING (UPDATED) ── */
+  /* ── RENTAL PRICING ── */
   .rental { background: linear-gradient(180deg, var(--white) 0%, var(--cyan-50) 100%); }
   .pricing-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 50px; }
   
@@ -249,25 +255,24 @@
   }
   
   .price-card.popular { border-color: var(--cyan-400); box-shadow: var(--shadow-lg); transform: scale(1.03); z-index: 2; }
-  .badge-popular { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--cyan-500); color: white; padding: 6px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; }
+  .badge-popular { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--cyan-500); color: white; padding: 6px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; white-space: nowrap; }
   
   .price-unit { font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 4px; font-family: 'Syne', sans-serif; }
   .price-type { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 32px; line-height: 1.5; min-height: 40px; display: flex; align-items: center; justify-content: center;}
   
-  /* Style khusus untuk baris harga agar terlihat menonjol */
   .price-row { 
     display: flex; 
     justify-content: space-between; 
+    align-items: center;
     padding: 16px 0; 
     border-bottom: 1px dashed var(--cyan-200); 
     font-size: 1rem; 
     font-weight: 500; 
   }
 
-  /* Baris harga utama (Sewa) */
   .price-row.main-price {
     background-color: var(--cyan-50);
-    margin: 0 -20px; /* Stretch background to edges */
+    margin: 0 -20px;
     padding: 16px 20px;
     border-bottom: 1px solid var(--cyan-200);
     border-top: 1px solid var(--cyan-200);
@@ -289,25 +294,55 @@
   .rental-features { margin-top: 60px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
   .feature-tag { background: var(--white); padding: 12px 24px; border-radius: 50px; border: 1px solid var(--cyan-200); display: flex; align-items: center; gap: 8px; color: var(--cyan-800); font-weight: 600; font-size: 0.95rem; }
 
-  /* ── GALLERY ── */
+  .rental-why { margin-top: 60px; background: white; padding: 48px; border-radius: var(--radius); border: 1px solid var(--cyan-100); }
+  .rental-why h3 { margin-bottom: 24px; font-size: 1.5rem; }
+  .rental-why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+  .rental-why-grid h4 { color: var(--cyan-700); margin-bottom: 12px; font-size: 1.2rem; }
+  .rental-why-grid p { font-size: 1rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* ── GALLERY (UPDATED — tanpa teks hover) ── */
   .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 50px; }
-  .gallery-item { border-radius: var(--radius); overflow: hidden; position: relative; aspect-ratio: 4/3; cursor: pointer; }
-  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
-  .gallery-item:hover img { transform: scale(1.08); }
-  .gallery-overlay { position: absolute; inset: 0; background: rgba(6,182,212,0.85); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; backdrop-filter: blur(2px); }
-  .gallery-item:hover .gallery-overlay { opacity: 1; }
-  .gallery-text { color: white; font-weight: 700; font-family: 'Syne', sans-serif; font-size: 1.5rem; letter-spacing: 0.02em; }
+  .gallery-item { 
+    border-radius: var(--radius); 
+    overflow: hidden; 
+    position: relative; 
+    aspect-ratio: 4/3; 
+    cursor: pointer; 
+  }
+  .gallery-item img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+  }
+  .gallery-item:hover img { 
+    transform: scale(1.08); 
+  }
+  /* Overlay transparan halus tanpa teks */
+  .gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 182, 212, 0.08);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    border-radius: var(--radius);
+  }
+  .gallery-item:hover::after {
+    opacity: 1;
+  }
 
   /* ── WHY US & FAQ ── */
   .why-us-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 50px; }
   .faq-item { background: var(--white); border-radius: 16px; margin-bottom: 16px; border: 1px solid var(--cyan-100); overflow: hidden; }
-  .faq-question { width: 100%; text-align: left; padding: 24px; background: none; border: none; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; }
+  .faq-question { width: 100%; text-align: left; padding: 24px; background: none; border: none; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; -webkit-tap-highlight-color: transparent; line-height: 1.4; gap: 12px; }
   .faq-question:hover { background: var(--sky-50); }
   .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding: 0 24px; background: var(--sky-50); }
   .faq-answer p { padding-bottom: 24px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
   .faq-item.active .faq-answer { max-height: 300px; }
   .faq-item.active .faq-question { color: var(--cyan-600); background: var(--cyan-50); }
-  .icon-toggle { transition: 0.3s; font-size: 1.5rem; line-height: 1; }
+  .icon-toggle { transition: 0.3s; font-size: 1.5rem; line-height: 1; flex-shrink: 0; }
   .faq-item.active .icon-toggle { transform: rotate(45deg); }
 
   /* ── CONTACT & MAP ── */
@@ -317,15 +352,21 @@
   .contact-icon { width: 44px; height: 44px; background: var(--cyan-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cyan-600); font-size: 1.2rem; flex-shrink: 0; }
   .map-container { border-radius: var(--radius); overflow: hidden; height: 100%; min-height: 450px; border: 2px solid var(--cyan-200); box-shadow: var(--shadow); }
   .map-container iframe { width: 100%; height: 100%; border: 0; }
+  .area-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .area-tag { background: var(--cyan-50); color: var(--cyan-700); padding: 6px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 500; }
+  .contact-divider { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--cyan-100); }
 
   /* ── FOOTER ── */
   footer { background: var(--dark); color: #94a3b8; padding: 80px 5% 40px; }
   .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 48px; margin-bottom: 60px; }
-  .footer-logo { font-family: 'Syne', sans-serif; font-size: 1.6rem; color: white; font-weight: 800; margin-bottom: 24px; display: block; }
+  .footer-logo { font-family: 'Syne', sans-serif; font-size: 1.6rem; color: white; font-weight: 800; margin-bottom: 24px; display: block; text-decoration: none; }
   .footer-links li { margin-bottom: 14px; list-style: none; }
-  .footer-links a { color: #cbd5e1; text-decoration: none; transition: 0.2s; font-size: 0.95rem; }
+  .footer-links a { color: #cbd5e1; text-decoration: none; transition: 0.2s; font-size: 0.95rem; -webkit-tap-highlight-color: transparent; }
   .footer-links a:hover { color: var(--cyan-400); }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; font-size: 0.9rem; }
+  .footer-socials { display: flex; gap: 16px; }
+  .footer-socials a { color: white; font-size: 1.8rem; transition: 0.3s; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+  .footer-socials a:hover { color: #22d3ee; }
 
   /* ── FAB WHATSAPP ── */
   .wa-fab {
@@ -334,23 +375,362 @@
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     box-shadow: 0 6px 24px rgba(37,211,102,0.4); text-decoration: none;
     transition: 0.3s;
+    -webkit-tap-highlight-color: transparent;
   }
   .wa-fab:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
 
-  /* ── RESPONSIVE ── */
+  /* ═══════════════════════════════════════════════
+     MOBILE OPTIMIZATION — TABLET (max-width: 768px)
+     ═══════════════════════════════════════════════ */
   @media (max-width: 768px) {
-    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; flex-direction: column; padding: 24px; box-shadow: var(--shadow); gap: 20px; }
+
+    /* ── NAV ── */
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: 16px 24px 24px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      gap: 0;
+    }
     .nav-links.active { display: flex; }
+    .nav-links li { border-bottom: 1px solid var(--cyan-100); }
+    .nav-links li:last-child { border-bottom: none; }
+    .nav-links a {
+      display: block;
+      padding: 16px 0;
+      font-size: 1.05rem;
+    }
     .mobile-toggle { display: block; }
-    .hero-stats { flex-wrap: wrap; gap: 30px; }
-    .why-us-grid, .contact-grid { grid-template-columns: 1fr; }
-    .hero-title { font-size: 2.2rem; }
-    .map-container { min-height: 350px; }
-    .brands-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    .section-padding { padding: 80px 0; }
-    .contact-grid { gap: 32px; }
-    .pricing-wrapper { grid-template-columns: 1fr; }
-    .price-card.popular { transform: scale(1); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 130px 5% 80px;
+    }
+    .hero-title {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+    }
+    .hero-badge {
+      font-size: 0.82rem;
+      padding: 6px 16px;
+      margin-bottom: 24px;
+    }
+    .hero-buttons {
+      flex-direction: column;
+    }
+    .hero-buttons .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 16px 24px;
+    }
+    .hero-stats {
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 40px;
+      padding-top: 24px;
+    }
+    .stat-item {
+      flex: 1 1 40%;
+      min-width: 120px;
+      text-align: center;
+    }
+    .stat-item strong { font-size: 1.6rem; }
+    .stat-item span { font-size: 0.82rem; margin-top: 4px; }
+
+    /* ── SECTION PADDING ── */
+    .section-padding { padding: 70px 0; }
+
+    /* ── SECTION TYPOGRAPHY ── */
+    .section-title {
+      font-size: 1.65rem;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 1rem;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .section-tag {
+      font-size: 0.78rem;
+      margin-bottom: 12px;
+    }
+
+    /* ── BRANDS ── */
+    .brands { padding: 60px 0; }
+    .brands-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .brand-item {
+      padding: 14px 8px;
+      gap: 8px;
+    }
+    .brand-logo-img {
+      max-height: 36px;
+      max-width: 72px;
+    }
+    .brand-name {
+      font-size: 0.7rem;
+    }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .service-card {
+      padding: 28px 24px;
+    }
+    .service-card h3 { font-size: 1.2rem; }
+    .service-card p { font-size: 0.95rem; }
+
+    /* ── RENTAL / PRICING ── */
+    .pricing-wrapper {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .price-card {
+      padding: 32px 24px;
+    }
+    .price-card.popular {
+      transform: scale(1);
+    }
+    .price-unit { font-size: 1.3rem; }
+    .price-type { font-size: 0.9rem; min-height: auto; margin-bottom: 24px; }
+    .price-row { font-size: 0.95rem; padding: 14px 0; }
+    .price-row.main-price {
+      margin: 0 -16px;
+      padding: 14px 16px;
+      font-size: 1rem;
+    }
+    .price-row.main-price span:last-child { font-size: 1.1rem; }
+    .price-row.installation-fee span:last-child { font-size: 0.9rem; }
+
+    .rental-features {
+      margin-top: 40px;
+      gap: 10px;
+    }
+    .feature-tag {
+      padding: 10px 16px;
+      font-size: 0.85rem;
+    }
+
+    .rental-why {
+      margin-top: 40px;
+      padding: 28px 20px;
+    }
+    .rental-why h3 { font-size: 1.25rem; margin-bottom: 20px; }
+    .rental-why-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .rental-why-grid h4 { font-size: 1.1rem; }
+    .rental-why-grid p { font-size: 0.95rem; }
+
+    /* ── GALLERY ── */
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    /* ── WHY US & FAQ ── */
+    .why-us-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .contact-info-card {
+      padding: 28px 20px;
+    }
+    .contact-info-card h3 { font-size: 1.25rem; margin-bottom: 24px; }
+    .contact-row { gap: 14px; margin-bottom: 22px; }
+    .contact-icon { width: 40px; height: 40px; font-size: 1rem; }
+    .contact-row strong { font-size: 0.95rem; }
+    .contact-row p { font-size: 0.9rem; }
+    .map-container { min-height: 280px; }
+    .area-tag { font-size: 0.82rem; padding: 5px 12px; }
+    .contact-divider { margin-top: 28px; padding-top: 24px; }
+
+    /* ── FOOTER ── */
+    footer { padding: 56px 5% 32px; }
+    .footer-grid {
+      gap: 36px;
+      margin-bottom: 40px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-logo { font-size: 1.3rem; margin-bottom: 16px; }
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 12px;
+      font-size: 0.85rem;
+    }
+
+    /* ── FAB WA ── */
+    .wa-fab {
+      bottom: 24px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+    }
+    .wa-fab svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════
+     MOBILE — SMALL PHONES (max-width: 480px)
+     ═══════════════════════════════════════════════ */
+  @media (max-width: 480px) {
+
+    /* ── UTIL ── */
+    .container { padding: 0 16px; }
+
+    /* ── NAV ── */
+    nav { padding: 12px 16px; }
+    .nav-brand { font-size: 1.15rem; gap: 6px; }
+
+    /* ── HERO ── */
+    .hero { padding: 110px 16px 60px; }
+    .hero-title { font-size: 1.65rem; }
+    .hero-desc { font-size: 0.95rem; margin-bottom: 28px; }
+    .hero-badge { font-size: 0.75rem; padding: 5px 14px; margin-bottom: 20px; }
+    .hero-buttons .btn { padding: 14px 20px; font-size: 14px; }
+    .hero-stats {
+      gap: 16px;
+      margin-top: 32px;
+      padding-top: 20px;
+    }
+    .stat-item { flex: 1 1 42%; }
+    .stat-item strong { font-size: 1.35rem; }
+    .stat-item span { font-size: 0.75rem; }
+
+    /* ── SECTION ── */
+    .section-padding { padding: 56px 0; }
+    .section-title { font-size: 1.4rem; }
+    .section-desc { font-size: 0.92rem; margin-bottom: 28px; }
+
+    /* ── BRANDS ── */
+    .brands { padding: 48px 0; }
+    .brands-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .brand-item { padding: 10px 4px; gap: 6px; }
+    .brand-logo-img { max-height: 28px; max-width: 56px; }
+    .brand-name { font-size: 0.6rem; letter-spacing: 0.04em; }
+
+    /* ── SERVICES ── */
+    .service-card { padding: 24px 20px; }
+    .service-icon { width: 52px; height: 52px; font-size: 1.6rem; margin-bottom: 18px; }
+    .service-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .service-card p { font-size: 0.9rem; margin-bottom: 18px; }
+
+    /* ── PRICING ── */
+    .price-card { padding: 28px 20px; border-radius: 18px; }
+    .price-unit { font-size: 1.15rem; }
+    .price-row.main-price { margin: 0 -12px; padding: 12px 12px; font-size: 0.95rem; }
+    .price-row.main-price span:last-child { font-size: 1rem; }
+    .price-row { font-size: 0.9rem; padding: 12px 0; }
+    .feature-tag { padding: 8px 14px; font-size: 0.8rem; }
+
+    /* ── GALLERY ── */
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    /* ── FAQ ── */
+    .faq-question {
+      padding: 18px 16px;
+      font-size: 0.95rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      padding-bottom: 18px;
+    }
+    .icon-toggle { font-size: 1.3rem; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial-card {
+      padding: 24px 18px !important;
+    }
+
+    /* ── CONTACT ── */
+    .contact-info-card { padding: 24px 16px; }
+    .contact-info-card h3 { font-size: 1.15rem; }
+    .map-container { min-height: 220px; }
+
+    /* ── FOOTER ── */
+    footer { padding: 44px 16px 28px; }
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .footer-logo { font-size: 1.2rem; }
+  }
+
+  /* ═══════════════════════════════════════════════
+     MOBILE — TINY PHONES / SE (max-width: 360px)
+     ═══════════════════════════════════════════════ */
+  @media (max-width: 360px) {
+    .hero-title { font-size: 1.45rem; }
+    .hero-desc { font-size: 0.9rem; }
+    .section-title { font-size: 1.3rem; }
+    .brands-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .brand-logo-img { max-height: 24px; max-width: 48px; }
+    .brand-name { font-size: 0.55rem; }
+    .stat-item strong { font-size: 1.2rem; }
+    .hero-stats { gap: 12px; }
+    .gallery-grid { gap: 6px; }
+    .btn { font-size: 13px; padding: 13px 18px; }
+  }
+
+  /* ── TOUCH TARGET: minimal 44px untuk elemen interaktif ── */
+  @media (pointer: coarse) {
+    .nav-links a { min-height: 44px; display: flex; align-items: center; }
+    .faq-question { min-height: 52px; }
+    .service-link { min-height: 44px; display: inline-flex; align-items: center; padding: 4px 0; }
+    .footer-links a { display: inline-block; padding: 4px 0; min-height: 36px; }
+  }
+
+  /* ── SAFE AREA INSET untuk iPhone notch ── */
+  @supports (padding: max(0px)) {
+    .wa-fab {
+      bottom: max(24px, env(safe-area-inset-bottom));
+      right: max(20px, env(safe-area-inset-right));
+    }
+    nav {
+      padding-left: max(5%, env(safe-area-inset-left));
+      padding-right: max(5%, env(safe-area-inset-right));
+    }
+    footer {
+      padding-bottom: max(40px, calc(env(safe-area-inset-bottom) + 16px));
+    }
+  }
+
+  /* ── LANDSCAPE PHONE FIX ── */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .hero { padding: 100px 5% 50px; }
+    .hero-stats { margin-top: 28px; padding-top: 16px; gap: 20px; }
+    .section-padding { padding: 50px 0; }
   }
 </style>
 </head>
@@ -367,7 +747,7 @@
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Kontak</a></li>
   </ul>
-  <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+  <button class="mobile-toggle" id="menuToggle" aria-label="Buka menu navigasi">☰</button>
 </nav>
 
 <!-- HERO SECTION -->
@@ -376,7 +756,7 @@
     <div class="hero-badge">📍 Melayani Seluruh JAKARTA</div>
     <h1 class="hero-title">Solusi AC Dingin & Nyaman untuk <span>Rumah & Bisnis</span></h1>
     <p class="hero-desc">Spesialis servis, cuci, bongkar pasang, dan rental AC profesional. Teknisi handal, harga transparan, dan bergaransi.</p>
-    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+    <div class="hero-buttons">
       <a href="https://wa.me/6285817818216" class="btn btn-primary">Hubungi WhatsApp</a>
       <a href="#rental" class="btn btn-outline">Cek Harga Rental</a>
     </div>
@@ -398,99 +778,80 @@
     </div>
     
     <div class="brands-grid">
-      <!-- LG -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/fdFwwgCK/lg.png" alt="LG AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/fdFwwgCK/lg.png" alt="LG AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">LG</span>
       </div>
-      <!-- Daikin -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/JWWR0qgN/daikin.png" alt="Daikin AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/JWWR0qgN/daikin.png" alt="Daikin AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Daikin</span>
       </div>
-      <!-- Sharp -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/Q3v47myj/sharp.png" alt="Sharp AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/Q3v47myj/sharp.png" alt="Sharp AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Sharp</span>
       </div>
-      <!-- Toshiba -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/hTdQ3mH/thosiba.png" alt="Toshiba AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/hTdQ3mH/thosiba.png" alt="Toshiba AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Toshiba</span>
       </div>
-      <!-- Panasonic -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/RTx46Ndg/panasonic.png" alt="Panasonic AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/RTx46Ndg/panasonic.png" alt="Panasonic AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Panasonic</span>
       </div>
-      <!-- Samsung -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/pvTz12vZ/samsung.png" alt="Samsung AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/pvTz12vZ/samsung.png" alt="Samsung AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Samsung</span>
       </div>
-      <!-- Haier -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/BV3zrBxh/Haier-logo-svg.png" alt="Haier AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/BV3zrBxh/Haier-logo-svg.png" alt="Haier AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Haier</span>
       </div>
-      <!-- Akari -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/8DNTprNn/Logo-Akari.png" alt="Akari AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/8DNTprNn/Logo-Akari.png" alt="Akari AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Akari</span>
       </div>
-      <!-- Sanken -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/F47jwZJ7/Logo-Sanken.png" alt="Sanken AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/F47jwZJ7/Logo-Sanken.png" alt="Sanken AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Sanken</span>
       </div>
-      <!-- Aqua -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/QvWDQm7v/tmp-9a6db9244d8172ef5af8fd932e3220fe-0f757bd25520a6d519a4eaa58c9eaa16.jpg" alt="Aqua AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/QvWDQm7v/tmp-9a6db9244d8172ef5af8fd932e3220fe-0f757bd25520a6d519a4eaa58c9eaa16.jpg" alt="Aqua AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Aqua</span>
       </div>
-      <!-- Mitsubishi -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/zVFmqW8p/709-7096063-mitsubishi-air-conditioning-mitsubishi-heavy-industries-logo-png.jpg" alt="Mitsubishi AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/zVFmqW8p/709-7096063-mitsubishi-air-conditioning-mitsubishi-heavy-industries-logo-png.jpg" alt="Mitsubishi AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Mitsubishi</span>
       </div>
-      <!-- Gree -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/S4bg4DtV/logo.webp" alt="Gree AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/S4bg4DtV/logo.webp" alt="Gree AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Gree</span>
       </div>
-      <!-- Midea -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/PG91SYsD/Midea-Logo.png" alt="Midea AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/PG91SYsD/Midea-Logo.png" alt="Midea AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Midea</span>
       </div>
-      <!-- Changhong -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/9kKFrZ7d/CHL-60028-03c2b5e6-5af1-4397-ad3a-e04b04c50b5b.png" alt="Changhong AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/9kKFrZ7d/CHL-60028-03c2b5e6-5af1-4397-ad3a-e04b04c50b5b.png" alt="Changhong AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Changhong</span>
       </div>
-      <!-- Polytron -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/tTYWgMCf/61dfc49b1fca06-06626864.png" alt="Polytron AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/tTYWgMCf/61dfc49b1fca06-06626864.png" alt="Polytron AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Polytron</span>
       </div>
-      <!-- TCL -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/j9XbrB1x/tcl-share-e1676456859336.png" alt="TCL AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/j9XbrB1x/tcl-share-e1676456859336.png" alt="TCL AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">TCL</span>
       </div>
-      <!-- Hisense -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/G4Nc6s8k/Hisense-logo-PNG-6-1024x576.webp" alt="Hisense AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/G4Nc6s8k/Hisense-logo-PNG-6-1024x576.webp" alt="Hisense AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Hisense</span>
       </div>
-      <!-- AUX -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/PGVnQ3nq/Logo-AUX-Air-Conditioner-China-svg.png" alt="AUX AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/PGVnQ3nq/Logo-AUX-Air-Conditioner-China-svg.png" alt="AUX AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">AUX</span>
       </div>
-      <!-- Denpoo -->
       <div class="brand-item">
-        <img src="https://i.ibb.co/mr00FKr3/images.png" alt="Denpoo AC" class="brand-logo-img">
+        <img src="https://i.ibb.co/mr00FKr3/images.png" alt="Denpoo AC" class="brand-logo-img" loading="lazy">
         <span class="brand-name">Denpoo</span>
       </div>
     </div>
@@ -534,7 +895,7 @@
   </div>
 </section>
 
-<!-- RENTAL AC SECTION (UPDATED) -->
+<!-- RENTAL AC SECTION -->
 <section class="section-padding rental" id="rental">
   <div class="container">
     <div class="text-center">
@@ -548,19 +909,14 @@
       <div class="price-card">
         <div class="price-unit">AC 0.5 PK</div>
         <div class="price-type">Cocok untuk Ruangan 3x3m</div>
-        
-        <!-- Harga Bulanan -->
         <div class="price-row main-price">
           <span>Sewa Bulanan</span>
           <span>Rp 250.000</span>
         </div>
-        
-        <!-- Biaya Pasang -->
         <div class="price-row installation-fee">
           <span>Biaya Pasang</span>
           <span>Rp 350.000</span>
         </div>
-
         <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%200.5%20PK" class="btn btn-outline">Pesan Sekarang</a>
       </div>
 
@@ -569,19 +925,14 @@
         <div class="badge-popular">Paling Laris</div>
         <div class="price-unit">AC 0.75 PK</div>
         <div class="price-type">Cocok untuk Ruangan 3x4m</div>
-        
-        <!-- Harga Bulanan -->
         <div class="price-row main-price">
           <span>Sewa Bulanan</span>
           <span>Rp 270.000</span>
         </div>
-        
-        <!-- Biaya Pasang -->
         <div class="price-row installation-fee">
           <span>Biaya Pasang</span>
           <span>Rp 350.000</span>
         </div>
-
         <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%200.75%20PK" class="btn btn-primary">Pesan Sekarang</a>
       </div>
 
@@ -589,24 +940,18 @@
       <div class="price-card">
         <div class="price-unit">AC 1 PK</div>
         <div class="price-type">Cocok untuk Ruangan 4x4m</div>
-        
-        <!-- Harga Bulanan -->
         <div class="price-row main-price">
           <span>Sewa Bulanan</span>
           <span>Rp 300.000</span>
         </div>
-        
-        <!-- Biaya Pasang -->
         <div class="price-row installation-fee">
           <span>Biaya Pasang</span>
           <span>Rp 350.000</span>
         </div>
-
         <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%201%20PK" class="btn btn-outline">Pesan Sekarang</a>
       </div>
     </div>
 
-    <!-- Fitur / Keunggulan Baru (UPDATED CONTENT) -->
     <div class="rental-features">
       <div class="feature-tag">✅ Garansi 3 Bulan Full</div>
       <div class="feature-tag">✅ Konsultasi Gratis</div>
@@ -614,27 +959,23 @@
       <div class="feature-tag">✅ Unit Terawat</div>
     </div>
 
-    <!-- Kenapa Memilih (Updated Content) -->
-    <div style="margin-top: 60px; background: white; padding: 48px; border-radius: var(--radius); border: 1px solid var(--cyan-100);">
-      <h3 style="margin-bottom: 24px; font-size: 1.5rem;">Kenapa Memilih Jasa Rental AC Sejuk Teknik?</h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-        
-        <!-- Unit Selalu Ready DIHAPUS sesuai request -->
-        
+    <div class="rental-why">
+      <h3>Kenapa Memilih Jasa Rental AC Sejuk Teknik?</h3>
+      <div class="rental-why-grid">
         <div>
-          <h4 style="color: var(--cyan-700); margin-bottom: 12px; font-size: 1.2rem;">1. Harga Transparan</h4>
-          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Apa yang Anda lihat adalah apa yang Anda bayar. Biaya sewa bulanan dan pasang diinformasikan dengan jelas di awal.</p>
+          <h4>1. Harga Transparan</h4>
+          <p>Apa yang Anda lihat adalah apa yang Anda bayar. Biaya sewa bulanan dan pasang diinformasikan dengan jelas di awal.</p>
         </div>
         <div>
-          <h4 style="color: var(--cyan-700); margin-bottom: 12px; font-size: 1.2rem;">2. Pelayanan Cepat</h4>
-          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Pemesanan melalui WhatsApp diproses cepat. Teknisi kami siap antar dan pasang di lokasi Anda segera.</p>
+          <h4>2. Pelayanan Cepat</h4>
+          <p>Pemesanan melalui WhatsApp diproses cepat. Teknisi kami siap antar dan pasang di lokasi Anda segera.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY SECTION -->
+<!-- GALLERY SECTION (UPDATED — gambar baru, tanpa teks hover) -->
 <section class="section-padding" id="gallery" style="background: var(--white);">
   <div class="container">
     <div class="text-center">
@@ -644,28 +985,22 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="https://picsum.photos/seed/ac1/600/450" alt="Servis AC">
-        <div class="gallery-overlay"><div class="gallery-text">Service Rutin</div></div>
+        <img src="https://i.ibb.co.com/prLtNDRn/photo-1759772238012-9d5ad59ae637.avif" alt="Pengerjaan service AC" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="https://picsum.photos/seed/ac2/600/450" alt="Cuci AC">
-        <div class="gallery-overlay"><div class="gallery-text">Cuci Deep Clean</div></div>
+        <img src="https://i.ibb.co.com/C5rFgQm2/premium-photo-1679943423706-570c6462f9a4.avif" alt="Proses cuci AC" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="https://picsum.photos/seed/ac3/600/450" alt="Instalasi AC">
-        <div class="gallery-overlay"><div class="gallery-text">Instalasi Baru</div></div>
+        <img src="https://i.ibb.co.com/B2j7Cbgd/premium-photo-1682126012378-859ca7a9f4cf.avif" alt="Instalasi AC" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="https://picsum.photos/seed/ac4/600/450" alt="Rental AC Event">
-        <div class="gallery-overlay"><div class="gallery-text">Rental Event</div></div>
+        <img src="https://i.ibb.co.com/m51Szxj9/premium-photo-1682126009570-3fe2399162f7.avif" alt="Pemasangan unit AC" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="https://picsum.photos/seed/ac5/600/450" alt="Perbaikan Kelistrikan">
-        <div class="gallery-overlay"><div class="gallery-text">Instalasi Listrik</div></div>
+        <img src="https://i.ibb.co.com/DgQZQt49/photo-1757219525975-03b5984bc6e8.avif" alt="Pengecekan AC" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="https://picsum.photos/seed/ac6/600/450" alt="Teknisi Kami">
-        <div class="gallery-overlay"><div class="gallery-text">Tim Profesional</div></div>
+        <img src="https://i.ibb.co.com/PvBs0gb2/photo-1691351582808-329cde17ffa2.avif" alt="Perbaikan AC" loading="lazy">
       </div>
     </div>
   </div>
@@ -689,7 +1024,7 @@
           <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Setiap service dan bongkar pasang mendapatkan garansi toko hingga 30 hari (tergantung jenis kerusakan).</p>
         </div>
         
-        <div style="background: white; padding: 32px; border-radius: 16px; border-left: 5px solid var(--cyan-500); box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+        <div class="testimonial-card" style="background: white; padding: 32px; border-radius: 16px; border-left: 5px solid var(--cyan-500); box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
           <strong style="color: var(--cyan-700); display: block; margin-bottom: 8px; font-size: 1.1rem;">Ulasan Pelanggan:</strong>
           <p style="font-style: italic; color: var(--text-main); font-size: 1rem; line-height: 1.6;">"Pelayanan sangat cepat, teknisi ramah dan AC saya jadi dingin kembali. Mantap Sejuk Teknik!" <br><strong style="color: var(--dark); margin-top: 8px; display: block;">— Ibu Hartini, Kelapa Gading</strong></p>
         </div>
@@ -778,36 +1113,35 @@
           <div class="contact-icon">⏰</div>
           <div>
             <strong>Jam Operasional:</strong>
-            <!-- UPDATED TIME -->
             <p style="color: var(--text-muted); font-size: 1rem;">Setiap Hari: 09:00 – 19:00 WIB</p>
           </div>
         </div>
         
-        <div style="margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--cyan-100);">
+        <div class="contact-divider">
           <p style="font-size: 0.95rem; margin-bottom: 16px; font-weight: 700;">Wilayah Layanan:</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-            <span style="background: var(--cyan-50); color: var(--cyan-700); padding: 6px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 500;">Jakarta Utara</span>
-            <span style="background: var(--cyan-50); color: var(--cyan-700); padding: 6px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 500;">Jakarta Selatan</span>
-            <span style="background: var(--cyan-50); color: var(--cyan-700); padding: 6px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 500;">Jakarta Barat</span>
-            <span style="background: var(--cyan-50); color: var(--cyan-700); padding: 6px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 500;">Jakarta Timur</span>
-            <span style="background: var(--cyan-50); color: var(--cyan-700); padding: 6px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 500;">Jakarta Pusat</span>
+          <div class="area-tags">
+            <span class="area-tag">Jakarta Utara</span>
+            <span class="area-tag">Jakarta Selatan</span>
+            <span class="area-tag">Jakarta Barat</span>
+            <span class="area-tag">Jakarta Timur</span>
+            <span class="area-tag">Jakarta Pusat</span>
           </div>
         </div>
       </div>
 
       <div class="map-container">
-        <!-- Menggunakan format embed query dengan alamat yang diberikan -->
         <iframe 
             src="https://maps.google.com/maps?q=Jl.%20Gereja,%20Tugu%20Sel.,%20Kec.%20Klp.%20Gading,%20Jkt%20Utara&t=&z=15&ie=UTF8&iwloc=&output=embed" 
             allowfullscreen="" 
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Lokasi Sejuk Teknik AC di Google Maps">
         </iframe>
       </div>
     </div>
 
     <div class="text-center" style="margin-top: 40px;">
-      <a href="https://maps.app.goo.gl/vW48HuqdvTqzSN6JA" target="_blank" class="btn btn-outline">Buka di Google Maps ↗</a>
+      <a href="https://maps.app.goo.gl/vW48HuqdvTqzSN6JA" target="_blank" class="btn btn-outline" rel="noopener noreferrer">Buka di Google Maps ↗</a>
     </div>
   </div>
 </section>
@@ -819,10 +1153,10 @@
       <div>
         <a href="#" class="footer-logo">❄️ Sejuk Teknik AC</a>
         <p style="margin-bottom: 24px; font-size: 1rem; line-height: 1.8;">Mitra terpercaya untuk solusi pendingin ruangan Anda. Melayani service, cuci, rental, dan instalasi AC di seluruh wilayah Jakarta dengan standar kualitas tinggi.</p>
-        <div style="display: flex; gap: 16px;">
-          <a href="https://wa.me/6285817818216" style="color: white; font-size: 1.8rem; transition: 0.3s;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='white'">💬</a>
-          <a href="#" style="color: white; font-size: 1.8rem; transition: 0.3s;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='white'">📷</a>
-          <a href="#" style="color: white; font-size: 1.8rem; transition: 0.3s;" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='white'">📘</a>
+        <div class="footer-socials">
+          <a href="https://wa.me/6285817818216" aria-label="WhatsApp">💬</a>
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Facebook">📘</a>
         </div>
       </div>
       <div>
@@ -864,49 +1198,77 @@
 </footer>
 
 <!-- FLOATING WA -->
-<a href="https://wa.me/6285817818216" class="wa-fab" target="_blank" title="Chat WhatsApp">
+<a href="https://wa.me/6285817818216" class="wa-fab" target="_blank" title="Chat WhatsApp" aria-label="Chat WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.6 14.16c-.24.68-1.29 1.25-1.77 1.31-.46.05-.86.19-3.09-.69-2.56-.99-4.2-3.65-4.33-3.83-.13-.18-1.04-1.39-1.04-2.65 0-1.25.64-1.88.88-2.15.24-.27.53-.34.71-.34.18 0 .36.01.51.04.17.04.4.08.61.51.24.48.82 2.01.89 2.16.07.15.12.33.02.52-.1.19-.15.31-.3.47-.15.16-.32.36-.46.48-.15.12-.31.26-.13.52.18.26.79 1.3 1.71 2.11 1.18 1.05 2.18 1.38 2.45 1.52.26.15.42.13.58-.08.16-.21.68-.79.87-1.06.18-.27.37-.22.62-.13.25.09 1.58.75 1.85.88.27.13.45.2.51.31.07.11.07.64-.17 1.32z"/></svg>
 </a>
 
 <script>
   // Mobile Menu Toggle
-  function toggleMenu() {
-    const nav = document.getElementById('navLinks');
-    nav.classList.toggle('active');
-  }
+  var menuToggle = document.getElementById('menuToggle');
+  var navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+    var isOpen = navLinks.classList.contains('active');
+    menuToggle.textContent = isOpen ? '✕' : '☰';
+  });
+
+  navLinks.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') {
+      navLinks.classList.remove('active');
+      menuToggle.textContent = '☰';
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('nav')) {
+      navLinks.classList.remove('active');
+      menuToggle.textContent = '☰';
+    }
+  });
 
   // FAQ Accordion
   function toggleFaq(element) {
-    const parent = element.parentElement;
-    const isActive = parent.classList.contains('active');
+    var parent = element.parentElement;
+    var isActive = parent.classList.contains('active');
     
-    // Close all FAQs
-    document.querySelectorAll('.faq-item').forEach(item => {
+    document.querySelectorAll('.faq-item').forEach(function(item) {
       item.classList.remove('active');
     });
 
-    // If it wasn't active before, open it
     if (!isActive) {
       parent.classList.add('active');
     }
   }
   
   // Smooth Scroll for Anchor Links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const targetId = this.getAttribute('href');
+      var targetId = this.getAttribute('href');
       if (targetId === '#') return;
-      const targetElement = document.querySelector(targetId);
+      var targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        targetElement.scrollIntoView({
+        var navHeight = document.querySelector('nav').offsetHeight;
+        var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
           behavior: 'smooth'
         });
-        // Close mobile menu if open
-        document.getElementById('navLinks').classList.remove('active');
       }
     });
+  });
+
+  // Navbar scroll shadow
+  var navEl = document.querySelector('nav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 10) {
+      navEl.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+    } else {
+      navEl.style.boxShadow = 'none';
+    }
   });
 </script>
 
