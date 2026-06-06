@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Tidak Ditemukan - Error 404</title>
+    <title>Waduh, Lagi Bocor! - Error 404</title>
     <style>
         * {
             box-sizing: border-box;
@@ -12,7 +12,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #f4f7f6;
+            background-color: #f0f4f8;
             color: #333;
             display: flex;
             align-items: center;
@@ -22,65 +22,124 @@
             text-align: center;
         }
         .container {
-            max-width: 500px;
+            max-width: 550px;
             background: white;
             padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
         }
-        .icon {
-            font-size: 80px;
-            margin-bottom: 10px;
-            animation: float 3s ease-in-out infinite;
+        
+        /* Tempat Karakter Gambar Tukang AC */
+        .character-box {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            margin: 0 auto 20px auto;
         }
-        h1 {
-            font-size: 72px;
-            color: #e74c3c;
-            line-height: 1;
-            margin-bottom: 10px;
+        .character-box img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
-        h2 {
-            font-size: 22px;
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        p {
-            font-size: 15px;
-            color: #7f8c8d;
-            line-height: 1.6;
+
+        /* Gelembung Teks Dialog (Speech Bubble) */
+        .speech-bubble {
+            position: relative;
+            background: #eef2f7;
+            border-radius: .4em;
+            padding: 15px 20px;
             margin-bottom: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            line-height: 1.5;
+            border: 1px solid #d5dee7;
+        }
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+            border-bottom-color: #eef2f7;
+            border-top: 0;
+            margin-left: -15px;
+            margin-top: -15px;
+        }
+
+        h1 {
+            font-size: 60px;
+            color: #3498db;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        
+        /* Pembungkus Tombol */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
         .btn {
-            display: inline-block;
+            display: block;
+            text-decoration: none;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+        .btn-primary {
             background-color: #3498db;
             color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: background 0.3s ease;
             box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
         }
-        .btn:hover {
+        .btn-primary:hover {
             background-color: #2980b9;
+            transform: translateY(-2px);
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+            transform: translateY(-2px);
+        }
+
+        /* Responsif untuk Layar HP Menengah ke Atas */
+        @media (min-width: 480px) {
+            .btn-group {
+                flex-direction: row;
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Ikon AC Berasap/Error (Bisa diganti emoji lain) -->
-        <div class="icon">💨🛠️</div>
         <h1>404</h1>
-        <h2>Waduh, Halamannya Kurang Dingin!</h2>
-        <p>Sepertinya tautan yang Anda cari sudah 'bocor' atau salah ketik. Tenang, jangan biarkan ruangan Anda ikut panas. Mari kembali ke halaman utama kami.</p>
         
-        <!-- Tombol untuk kembali ke Beranda -->
-        <a href="/" class="btn">Kembali ke Beranda AC</a>
+        <!-- KOTAK GAMBAR: Ganti 'tukang-ac.png' dengan nama file gambar Anda nanti -->
+        <div class="character-box">
+            <img src="tukang-ac.png" alt="Tukang AC Bingung Garuk Kepala">
+        </div>
+
+        <!-- Dialog Sesuai Request Anda -->
+        <div class="speech-bubble">
+            "Halaman Lagi Di Perbaiki, Lagi Bocor, Balik Ke halaman utama yuk!"
+        </div>
+        
+        <!-- Tombol Aksi Navigasi -->
+        <div class="btn-group">
+            <a href="/" class="btn btn-primary">Kembali ke Beranda</a>
+            <!-- Opsional: Ganti nomor WA di bawah sesuai nomor bisnis ayah Anda -->
+            <a href="https://wa.me" target="_blank" class="btn btn-whatsapp">💬 Hubungi via WhatsApp</a>
+        </div>
     </div>
 
 </body>
