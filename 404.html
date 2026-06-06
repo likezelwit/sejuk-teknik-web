@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waduh, Lagi Bocor! - Error 404</title>
+    <title>Halaman Belum Terdaftar - Error 404</title>
     <style>
         * {
             box-sizing: border-box;
@@ -12,7 +12,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #f0f4f8;
+            background-color: #f4f7f9;
             color: #333;
             display: flex;
             align-items: center;
@@ -26,33 +26,28 @@
             background: white;
             padding: 40px 30px;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
         }
         
-        /* Tempat Karakter Gambar Tukang AC */
-        .character-box {
+        /* Ukuran Kotak Animasi 3D Isometrik */
+        .animation-box {
             width: 100%;
-            max-width: 250px;
+            max-width: 380px;
             height: auto;
-            margin: 0 auto 20px auto;
-        }
-        .character-box img {
-            width: 100%;
-            height: auto;
-            display: block;
+            margin: -20px auto 15px auto;
         }
 
-        /* Gelembung Teks Dialog (Speech Bubble) */
+        /* Gelembung Teks Dialog */
         .speech-bubble {
             position: relative;
             background: #eef2f7;
             border-radius: .4em;
-            padding: 15px 20px;
+            padding: 18px 20px;
             margin-bottom: 30px;
             font-size: 16px;
             font-weight: 600;
             color: #2c3e50;
-            line-height: 1.5;
+            line-height: 1.6;
             border: 1px solid #d5dee7;
         }
         .speech-bubble:after {
@@ -68,15 +63,8 @@
             margin-left: -15px;
             margin-top: -15px;
         }
-
-        h1 {
-            font-size: 60px;
-            color: #3498db;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
         
-        /* Pembungkus Tombol */
+        /* Pembungkus Tombol Aksi */
         .btn-group {
             display: flex;
             flex-direction: column;
@@ -91,54 +79,67 @@
             transition: all 0.3s ease;
             font-size: 15px;
         }
-        .btn-primary {
-            background-color: #3498db;
-            color: white;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-        }
-        .btn-primary:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-        }
+        /* Menyelaraskan warna tombol WA */
         .btn-whatsapp {
             background-color: #25d366;
             color: white;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.25);
         }
         .btn-whatsapp:hover {
             background-color: #20ba5a;
             transform: translateY(-2px);
         }
+        /* Menyelaraskan warna tombol utama dengan aksen merah 404 Isometrik */
+        .btn-primary {
+            background-color: #e74c3c;
+            color: white;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.25);
+        }
+        .btn-primary:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
 
-        /* Responsif untuk Layar HP Menengah ke Atas */
+        /* Tampilan Tombol Sejajar di HP Lebar / Laptop */
         @media (min-width: 480px) {
             .btn-group {
                 flex-direction: row;
                 justify-content: center;
             }
+            .btn {
+                flex: 1;
+                max-width: 220px;
+            }
         }
     </style>
+    <!-- Script pemutar Lottie resmi dari CDN -->
+    <script src="https://unpkg.com"></script>
 </head>
 <body>
 
     <div class="container">
-        <h1>404</h1>
         
-        <!-- KOTAK GAMBAR: Ganti 'tukang-ac.png' dengan nama file gambar Anda nanti -->
-        <div class="character-box">
-            <img src="tukang-ac.png" alt="Tukang AC Bingung Garuk Kepala">
+        <!-- MEMANGGIL FILE JSON YANG ANDA UNDUH -->
+        <div class="animation-box">
+            <lottie-player 
+                src="animasi404.json" 
+                background="transparent" 
+                speed="1" 
+                style="width: 100%; height: 100%;" 
+                loop 
+                autoplay>
+            </lottie-player>
         </div>
 
-        <!-- Dialog Sesuai Request Anda -->
+        <!-- Dialog Cerdas Pilihan Anda -->
         <div class="speech-bubble">
-            "Halaman Lagi Di Perbaiki, Lagi Bocor, Balik Ke halaman utama yuk!"
+            "Kita udah nyari apa yang kamu mau, tapi halaman AC ini belum terdaftar di kami!"
         </div>
         
-        <!-- Tombol Aksi Navigasi -->
         <div class="btn-group">
-            <a href="/" class="btn btn-primary">Kembali ke Beranda</a>
-            <!-- Opsional: Ganti nomor WA di bawah sesuai nomor bisnis ayah Anda -->
-            <a href="https://wa.me" target="_blank" class="btn btn-whatsapp">💬 Hubungi via WhatsApp</a>
+            <!-- PENTING: Ganti nomor di bawah dengan nomor WA bisnis Ayah Anda -->
+            <a href="https://wa.me" target="_blank" class="btn btn-whatsapp">Hubungi WhatsApp</a>
+            <a href="/" class="btn btn-primary">Balik ke Menu Utama</a>
         </div>
     </div>
 
