@@ -14,6 +14,10 @@
 <link rel="icon" type="image/jpeg" href="https://i.ibb.co.com/qMfqRXm0/15825173_d48c-4cd8-a166-c6d4fe79d0da.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
 <style>
   /* ── RESET & VARIABLES ── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -299,9 +303,18 @@
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    font-size: 1.6rem; 
     margin-bottom: 18px; 
     transition: 0.3s;
+  }
+
+  .svc-card-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--cyan-700);
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   .svc-card:hover .svc-card-icon {
@@ -510,6 +523,11 @@
   .icon-toggle { transition: 0.3s; font-size: 1.5rem; line-height: 1; flex-shrink: 0; }
   .faq-item.active .icon-toggle { transform: rotate(45deg); }
 
+  /* ── REVIEWS SECTION ── */
+  .reviews-section {
+    background: var(--sky-50);
+  }
+
   /* ── CONTACT & MAP ── */
   .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; margin-top: 50px; }
   .contact-info-card { background: var(--white); padding: 40px; border-radius: var(--radius); border: 1px solid var(--cyan-100); }
@@ -600,7 +618,8 @@
 
     .service-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 36px; }
     .svc-card { padding: 24px 16px; }
-    .svc-card-icon { width: 48px; height: 48px; font-size: 1.4rem; margin-bottom: 14px; }
+    .svc-card-icon { width: 48px; height: 48px; margin-bottom: 14px; }
+    .svc-card-icon svg { width: 22px; height: 22px; }
     .svc-card h4 { font-size: 0.95rem; }
     .svc-card p { font-size: 0.82rem; margin-bottom: 16px; }
     .svc-card .btn-sm { font-size: 12px; padding: 9px 16px; }
@@ -683,7 +702,8 @@
 
     .service-cards-grid { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
     .svc-card { padding: 20px 12px; }
-    .svc-card-icon { width: 42px; height: 42px; font-size: 1.2rem; margin-bottom: 10px; border-radius: 10px; }
+    .svc-card-icon { width: 42px; height: 42px; margin-bottom: 10px; border-radius: 10px; }
+    .svc-card-icon svg { width: 20px; height: 20px; }
     .svc-card h4 { font-size: 0.88rem; }
     .svc-card p { font-size: 0.78rem; margin-bottom: 14px; line-height: 1.4; }
     .svc-card .btn-sm { font-size: 11px; padding: 8px 12px; }
@@ -723,7 +743,8 @@
     .service-cards-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
     .svc-card p { display: none; }
     .svc-card { padding: 16px 10px; }
-    .svc-card-icon { width: 38px; height: 38px; font-size: 1.1rem; margin-bottom: 8px; }
+    .svc-card-icon { width: 38px; height: 38px; }
+    .svc-card-icon svg { width: 18px; height: 18px; }
   }
 
   /* ── TOUCH TARGET ── */
@@ -875,7 +896,7 @@
   </div>
 </section>
 
-<!-- DAFTAR LAYANAN — CARD STYLE -->
+<!-- DAFTAR LAYANAN — CARD STYLE (ICONS) -->
 <section class="section-padding" style="background: var(--white); padding-top: 0;">
   <div class="container">
     <div class="text-center">
@@ -886,7 +907,7 @@
 
       <div class="svc-card">
         <span class="badge-populer-card">Populer</span>
-        <div class="svc-card-icon">🛠️</div>
+        <div class="svc-card-icon"><i data-lucide="wrench"></i></div>
         <h4>Service AC</h4>
         <p>Perbaikan segala jenis kerusakan AC split & window.</p>
         <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20pesan%20Service%20AC" class="btn btn-primary btn-sm">Pesan Sekarang</a>
@@ -894,28 +915,28 @@
 
       <div class="svc-card">
         <span class="badge-populer-card">Populer</span>
-        <div class="svc-card-icon">🚿</div>
+        <div class="svc-card-icon"><i data-lucide="droplets"></i></div>
         <h4>Cuci AC</h4>
         <p>Cuci deep clean evaporator & unit luar.</p>
         <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20pesan%20Cuci%20AC" class="btn btn-primary btn-sm">Pesan Sekarang</a>
       </div>
 
       <div class="svc-card">
-        <div class="svc-card-icon">🔄</div>
+        <div class="svc-card-icon"><i data-lucide="repeat"></i></div>
         <h4>Tukar Tambah AC</h4>
         <p>Tukar unit lama dengan AC baru lebih hemat.</p>
         <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20Tukar%20Tambah%20AC" class="btn btn-outline btn-sm">Pesan Sekarang</a>
       </div>
 
       <div class="svc-card">
-        <div class="svc-card-icon">🔧</div>
+        <div class="svc-card-icon"><i data-lucide="settings"></i></div>
         <h4>Perbaikan AC</h4>
         <p>Diagnosa & perbaikan kompresor, PCB, dll.</p>
         <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20pesan%20Perbaikan%20AC" class="btn btn-outline btn-sm">Pesan Sekarang</a>
       </div>
 
       <div class="svc-card">
-        <div class="svc-card-icon">🔌</div>
+        <div class="svc-card-icon"><i data-lucide="plug-zap"></i></div>
         <h4>Bongkar Pasang AC</h4>
         <p>Instalasi baru atau pindah lokasi AC.</p>
         <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20pesan%20Bongkar%20Pasang%20AC" class="btn btn-outline btn-sm">Pesan Sekarang</a>
@@ -923,28 +944,28 @@
 
       <div class="svc-card">
         <span class="badge-populer-card">Populer</span>
-        <div class="svc-card-icon">🏷️</div>
+        <div class="svc-card-icon"><i data-lucide="tag"></i></div>
         <h4>Sewa AC</h4>
         <p>Rental AC bulanan untuk kos & kantor.</p>
         <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20Sewa%20AC" class="btn btn-primary btn-sm">Pesan Sekarang</a>
       </div>
 
       <div class="svc-card">
-        <div class="svc-card-icon">⚡</div>
+        <div class="svc-card-icon"><i data-lucide="gauge"></i></div>
         <h4>Panel Kontrol Motor</h4>
         <p>Pemasangan & perbaikan panel motor.</p>
         <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20Panel%20Kontrol%20Motor" class="btn btn-outline btn-sm">Pesan Sekarang</a>
       </div>
 
       <div class="svc-card">
-        <div class="svc-card-icon">💡</div>
+        <div class="svc-card-icon"><i data-lucide="lightbulb"></i></div>
         <h4>Panel Distribusi & Lampu</h4>
         <p>Instalasi panel distribusi & lampu.</p>
         <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20Panel%20Distribusi%20Lampu" class="btn btn-outline btn-sm">Pesan Sekarang</a>
       </div>
 
       <div class="svc-card">
-        <div class="svc-card-icon">⚙️</div>
+        <div class="svc-card-icon"><i data-lucide="cog"></i></div>
         <h4>Gulung Dinamo</h4>
         <p>Perbaikan & gulung ulang dinamo.</p>
         <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20pesan%20Gulung%20Dinamo" class="btn btn-outline btn-sm">Pesan Sekarang</a>
@@ -1142,7 +1163,7 @@
         <h3 style="margin-bottom: 32px; font-size: 1.5rem;">Informasi Kontak</h3>
         <div class="contact-row">
           <div class="contact-icon">📍</div>
-          <div><strong>Alamat Workshop:</strong><p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">Jl. Gereja, Tugu Sel., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta, Indonesia</p></div>
+          <div><strong>Alamat Workshop:</strong><p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">Jl. Perjuangan Jl. Gereja, RW.5, Tugu Sel., Kec. Koja, Jkt Utara, Daerah Khusus Ibukota Jakarta 14260</p></div>
         </div>
         <div class="contact-row">
           <div class="contact-icon">📞</div>
@@ -1168,12 +1189,28 @@
         </div>
       </div>
       <div class="map-container">
-        <iframe src="https://maps.google.com/maps?q=Jl.%20Gereja,%20Tugu%20Sel.,%20Kec.%20Klp.%20Gading,%20Jkt%20Utara&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi Sejuk Teknik AC di Google Maps"></iframe>
+        <iframe src="https://maps.google.com/maps?q=Jl.+Perjuangan+Jl.+Gereja,+RW.5,+Tugu+Sel.,+Kec.+Koja,+Jkt+Utara+14260&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi Sejuk Teknik AC di Google Maps"></iframe>
       </div>
     </div>
     <div class="text-center" style="margin-top: 40px;">
       <a href="https://maps.app.goo.gl/vW48HuqdvTqzSN6JA" target="_blank" class="btn btn-outline" rel="noopener noreferrer">Buka di Google Maps ↗</a>
     </div>
+  </div>
+</section>
+
+<!-- GOOGLE REVIEWS SECTION -->
+<section class="section-padding reviews-section" id="reviews">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Testimoni</span>
+      <h2 class="section-title">Ulasan Pelanggan Kami</h2>
+      <p class="section-desc">Kepuasan pelanggan adalah prioritas utama kami. Lihat apa kata mereka tentang layanan Sejuk Teknik.</p>
+    </div>
+    
+    <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-18932b19-72ce-49d3-b47d-a38b5142736c" data-elfsight-app-lazy></div>
+    
   </div>
 </section>
 
@@ -1247,6 +1284,9 @@
 </a>
 
 <script>
+  // Initialize Lucide Icons
+  lucide.createIcons();
+
   // Mobile Menu Toggle
   var menuToggle = document.getElementById('menuToggle');
   var navLinks = document.getElementById('navLinks');
