@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- SEO Meta Tags (UPDATED) -->
+<!-- SEO Meta Tags -->
 <title>Sejuk Teknik - Rental & Service AC Spesialis Koja Jakarta Utara</title>
 <meta name="description" content="Jasa sewa AC Split Sharp 3/4 PK, service, dan cuci AC murah di Koja. Berpengalaman 5 tahun. Hubungi Wahyudi: 0858-17-8182-16.">
 <meta name="keywords" content="Service AC Koja, Rental AC Koja, Cuci AC Jakarta Utara, Sewa AC Murah, Teknisi AC Koja">
 <meta name="google-site-verification" content="qXZj7IrpE9Tu8PCYVs0zXFtM87taOcKEkm2kQor0cDw" />
 
-<!-- Favicon / Browser Icon (UPDATED) -->
+<!-- Favicon -->
 <link rel="icon" type="image/jpeg" href="https://i.ibb.co.com/qMfqRXm0/15825173_d48c-4cd8-a166-c6d4fe79d0da.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -81,6 +81,12 @@
   
   .btn-outline { background: transparent; border: 2px solid var(--cyan-500); color: var(--cyan-700); }
   .btn-outline:hover { background: var(--cyan-50); border-color: var(--cyan-600); color: var(--cyan-800); }
+
+  .btn-sm {
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 100px;
+  }
 
   /* ── TYPOGRAPHY ── */
   h1, h2, h3, h4 { 
@@ -179,51 +185,69 @@
   .stat-item span { font-size: 0.9rem; color: var(--text-muted); margin-top: 8px; display: block; font-weight: 500; }
   .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
 
-  /* ── BRANDS ── */
-  .brands { background: var(--white); padding: 80px 0; border-bottom: 1px solid var(--cyan-100); }
-  .brands-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
-    gap: 40px; 
-    align-items: center; 
-    justify-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  /* ── BRANDS MARQUEE ── */
+  .brands { background: var(--white); padding: 80px 0; border-bottom: 1px solid var(--cyan-100); overflow: hidden; }
   
+  .marquee-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    margin-top: 48px;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 48px;
+    width: max-content;
+    animation: marqueeScroll 40s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
   .brand-item { 
     display: flex; 
     flex-direction: column;
     align-items: center; 
     justify-content: center;
-    gap: 12px;
-    padding: 20px;
+    gap: 10px;
+    padding: 16px 20px;
     transition: all 0.3s ease;
     cursor: default;
+    flex-shrink: 0;
   }
   
   .brand-logo-img {
-    max-height: 50px; 
-    max-width: 100px; 
+    max-height: 48px; 
+    max-width: 96px; 
     width: auto;
     object-fit: contain;
-    filter: grayscale(100%) opacity(0.6); 
+    filter: grayscale(100%) opacity(0.5); 
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .brand-item:hover .brand-logo-img {
     filter: grayscale(0%) opacity(1);
-    transform: scale(1.1);
+    transform: scale(1.15);
   }
 
   .brand-name {
     font-family: 'DM Sans', sans-serif;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     transition: color 0.3s;
+    white-space: nowrap;
   }
 
   .brand-item:hover .brand-name {
@@ -239,32 +263,84 @@
   .service-card p { color: var(--text-muted); margin-bottom: 24px; font-size: 1rem; line-height: 1.6; flex-grow: 1; }
   .service-link { color: var(--cyan-600); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: 0.95rem; }
 
-  /* ── SERVICE LIST (NEW) ── */
-  .services-list-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 50px; }
-  .service-list-item { 
-    background: var(--sky-50); 
-    padding: 24px 16px; 
-    border-radius: var(--radius-sm); 
-    text-align: center; 
-    font-weight: 700; 
-    font-size: 1rem; 
-    color: var(--cyan-800); 
-    border: 1px solid var(--cyan-200); 
-    position: relative; 
-    overflow: hidden; 
+  /* ── SERVICE LIST CARDS (UPDATED) ── */
+  .service-cards-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
+    gap: 24px; 
+    margin-top: 50px; 
+  }
+
+  .svc-card { 
+    background: var(--white); 
+    padding: 32px 24px; 
+    border-radius: var(--radius); 
+    border: 1px solid var(--cyan-100); 
     transition: 0.3s; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .svc-card:hover { 
+    transform: translateY(-6px); 
+    box-shadow: var(--shadow-lg); 
+    border-color: var(--cyan-300); 
+  }
+
+  .svc-card-icon { 
+    width: 56px; 
+    height: 56px; 
+    background: var(--cyan-100); 
+    border-radius: 14px; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    min-height: 70px; 
-    font-family: 'DM Sans', sans-serif;
+    font-size: 1.6rem; 
+    margin-bottom: 18px; 
+    transition: 0.3s;
   }
-  .service-list-item:hover { background: var(--cyan-100); transform: translateY(-4px); box-shadow: var(--shadow); }
-  .service-list-item.populer-service { background: var(--cyan-50); border-color: var(--cyan-500); color: var(--cyan-700); }
-  .badge-populer-list { 
-    position: absolute; top: 4px; right: 4px; background: var(--cyan-500); color: white; 
-    font-size: 0.65rem; padding: 3px 8px; border-radius: 20px; font-weight: 800; 
-    text-transform: uppercase; letter-spacing: 0.05em;
+
+  .svc-card:hover .svc-card-icon {
+    background: var(--cyan-200);
+    transform: scale(1.1);
+  }
+
+  .svc-card h4 { 
+    font-size: 1.05rem; 
+    font-weight: 700; 
+    color: var(--dark); 
+    margin-bottom: 8px; 
+  }
+
+  .svc-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  .svc-card .badge-populer-card { 
+    position: absolute; 
+    top: 12px; 
+    right: 12px; 
+    background: var(--cyan-500); 
+    color: white; 
+    font-size: 0.6rem; 
+    padding: 3px 10px; 
+    border-radius: 20px; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+  }
+
+  .svc-card .btn-sm {
+    width: 100%;
+    justify-content: center;
   }
 
   /* ── RENTAL PRICING ── */
@@ -319,6 +395,54 @@
 
   .price-card .btn { margin-top: auto; width: 100%; justify-content: center; }
 
+  /* ── SECOND HAND TOGGLE ── */
+  .secondhand-section {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, margin 0.4s ease;
+    opacity: 0;
+    margin-top: 0;
+  }
+
+  .secondhand-section.show {
+    max-height: 1200px;
+    opacity: 1;
+    margin-top: 40px;
+  }
+
+  .toggle-secondhand-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 32px;
+    padding: 14px 32px;
+    background: var(--cyan-50);
+    border: 2px dashed var(--cyan-400);
+    border-radius: 100px;
+    color: var(--cyan-700);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: 0.3s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .toggle-secondhand-btn:hover {
+    background: var(--cyan-100);
+    border-color: var(--cyan-500);
+  }
+
+  .toggle-secondhand-btn .toggle-arrow {
+    display: inline-block;
+    transition: transform 0.3s;
+    font-size: 1.1rem;
+  }
+
+  .toggle-secondhand-btn.active .toggle-arrow {
+    transform: rotate(180deg);
+  }
+
   .rental-features { margin-top: 60px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
   .feature-tag { background: var(--white); padding: 12px 24px; border-radius: 50px; border: 1px solid var(--cyan-200); display: flex; align-items: center; gap: 8px; color: var(--cyan-800); font-weight: 600; font-size: 0.95rem; }
 
@@ -341,7 +465,6 @@
     justify-content: center;
     gap: 12px;
   }
-  .condition-title:first-of-type { margin-top: 0; }
 
   /* ── GALLERY ── */
   .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 50px; }
@@ -425,11 +548,10 @@
   .wa-fab:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
 
   /* ═══════════════════════════════════════════════
-     MOBILE OPTIMIZATION — TABLET (max-width: 768px)
+     MOBILE — TABLET (max-width: 768px)
      ═══════════════════════════════════════════════ */
   @media (max-width: 768px) {
 
-    /* ── NAV ── */
     .nav-links {
       display: none;
       position: absolute;
@@ -445,14 +567,9 @@
     .nav-links.active { display: flex; }
     .nav-links li { border-bottom: 1px solid var(--cyan-100); }
     .nav-links li:last-child { border-bottom: none; }
-    .nav-links a {
-      display: block;
-      padding: 16px 0;
-      font-size: 1.05rem;
-    }
+    .nav-links a { display: block; padding: 16px 0; font-size: 1.05rem; }
     .mobile-toggle { display: block; }
 
-    /* ── HERO ── */
     .hero { padding: 130px 5% 80px; }
     .hero-title { font-size: 2rem; line-height: 1.2; }
     .hero-desc { font-size: 1.05rem; margin-bottom: 32px; }
@@ -464,31 +581,30 @@
     .stat-item strong { font-size: 1.6rem; }
     .stat-item span { font-size: 0.82rem; margin-top: 4px; }
 
-    /* ── SECTION PADDING ── */
     .section-padding { padding: 70px 0; }
-
-    /* ── SECTION TYPOGRAPHY ── */
     .section-title { font-size: 1.65rem; margin-bottom: 16px; }
     .section-desc { font-size: 1rem; margin-bottom: 36px; line-height: 1.7; }
     .section-tag { font-size: 0.78rem; margin-bottom: 12px; }
 
-    /* ── BRANDS ── */
     .brands { padding: 60px 0; }
-    .brands-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .brand-item { padding: 14px 8px; gap: 8px; }
+    .marquee-wrapper { margin-top: 36px; }
+    .marquee-track { gap: 36px; animation-duration: 30s; }
+    .brand-item { padding: 12px 16px; gap: 8px; }
     .brand-logo-img { max-height: 36px; max-width: 72px; }
     .brand-name { font-size: 0.7rem; }
 
-    /* ── SERVICES ── */
     .services-grid { grid-template-columns: 1fr; gap: 20px; }
     .service-card { padding: 28px 24px; }
     .service-card h3 { font-size: 1.2rem; }
     .service-card p { font-size: 0.95rem; }
-    
-    .services-list-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .service-list-item { padding: 16px 8px; font-size: 0.9rem; min-height: 60px; }
 
-    /* ── RENTAL / PRICING ── */
+    .service-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 36px; }
+    .svc-card { padding: 24px 16px; }
+    .svc-card-icon { width: 48px; height: 48px; font-size: 1.4rem; margin-bottom: 14px; }
+    .svc-card h4 { font-size: 0.95rem; }
+    .svc-card p { font-size: 0.82rem; margin-bottom: 16px; }
+    .svc-card .btn-sm { font-size: 12px; padding: 9px 16px; }
+
     .pricing-wrapper { grid-template-columns: 1fr; gap: 28px; }
     .price-card { padding: 32px 24px; }
     .price-card.popular { transform: scale(1); }
@@ -507,13 +623,11 @@
     .rental-why-grid p { font-size: 0.95rem; }
     .condition-title { font-size: 1.25rem; margin-top: 40px; }
 
-    /* ── GALLERY ── */
-    .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px; }
+    .toggle-secondhand-btn { font-size: 0.9rem; padding: 12px 24px; }
 
-    /* ── WHY US & FAQ ── */
+    .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px; }
     .why-us-grid { grid-template-columns: 1fr; gap: 48px; }
 
-    /* ── CONTACT ── */
     .contact-grid { grid-template-columns: 1fr; gap: 24px; }
     .contact-info-card { padding: 28px 20px; }
     .contact-info-card h3 { font-size: 1.25rem; margin-bottom: 24px; }
@@ -525,14 +639,12 @@
     .area-tag { font-size: 0.82rem; padding: 5px 12px; }
     .contact-divider { margin-top: 28px; padding-top: 24px; }
 
-    /* ── FOOTER ── */
     footer { padding: 56px 5% 32px; }
     .footer-grid { gap: 36px; margin-bottom: 40px; grid-template-columns: 1fr 1fr; }
     .footer-logo { font-size: 1.3rem; margin-bottom: 16px; }
     .footer-bottom { flex-direction: column; text-align: center; gap: 16px; font-size: 0.85rem; }
     .footer-bottom-links { justify-content: center; gap: 16px; }
 
-    /* ── FAB WA ── */
     .wa-fab { bottom: 24px; right: 20px; width: 56px; height: 56px; }
     .wa-fab svg { width: 28px; height: 28px; }
   }
@@ -557,51 +669,61 @@
     .section-padding { padding: 56px 0; }
     .section-title { font-size: 1.4rem; }
     .section-desc { font-size: 0.92rem; margin-bottom: 28px; }
+
     .brands { padding: 48px 0; }
-    .brands-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .brand-item { padding: 10px 4px; gap: 6px; }
-    .brand-logo-img { max-height: 28px; max-width: 56px; }
-    .brand-name { font-size: 0.6rem; letter-spacing: 0.04em; }
+    .marquee-track { gap: 28px; animation-duration: 25s; }
+    .brand-item { padding: 10px 12px; gap: 6px; }
+    .brand-logo-img { max-height: 30px; max-width: 60px; }
+    .brand-name { font-size: 0.6rem; }
+
     .service-card { padding: 24px 20px; }
     .service-icon { width: 52px; height: 52px; font-size: 1.6rem; margin-bottom: 18px; }
     .service-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
     .service-card p { font-size: 0.9rem; margin-bottom: 18px; }
-    .services-list-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .service-list-item { padding: 14px 8px; font-size: 0.85rem; min-height: 55px; }
+
+    .service-cards-grid { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+    .svc-card { padding: 20px 12px; }
+    .svc-card-icon { width: 42px; height: 42px; font-size: 1.2rem; margin-bottom: 10px; border-radius: 10px; }
+    .svc-card h4 { font-size: 0.88rem; }
+    .svc-card p { font-size: 0.78rem; margin-bottom: 14px; line-height: 1.4; }
+    .svc-card .btn-sm { font-size: 11px; padding: 8px 12px; }
+
     .price-card { padding: 28px 20px; border-radius: 18px; }
     .price-unit { font-size: 1.15rem; }
     .price-row.main-price { margin: 0 -12px; padding: 12px 12px; font-size: 0.95rem; }
     .price-row.main-price span:last-child { font-size: 1rem; }
     .price-row { font-size: 0.9rem; padding: 12px 0; }
     .feature-tag { padding: 8px 14px; font-size: 0.8rem; }
+
     .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 28px; }
     .faq-question { padding: 18px 16px; font-size: 0.95rem; }
     .faq-answer p { font-size: 0.9rem; padding-bottom: 18px; }
     .icon-toggle { font-size: 1.3rem; }
-    .testimonial-card { padding: 24px 18px !important; }
+
     .contact-info-card { padding: 24px 16px; }
     .contact-info-card h3 { font-size: 1.15rem; }
     .map-container { min-height: 220px; }
+
     footer { padding: 44px 16px 28px; }
     .footer-grid { grid-template-columns: 1fr; gap: 28px; }
     .footer-logo { font-size: 1.2rem; }
     .footer-bottom-links { flex-direction: column; gap: 10px; }
   }
 
-  /* ═══════════════════════════════════════════════
-     MOBILE — TINY PHONES / SE (max-width: 360px)
-     ═══════════════════════════════════════════════ */
   @media (max-width: 360px) {
     .hero-title { font-size: 1.45rem; }
     .hero-desc { font-size: 0.9rem; }
     .section-title { font-size: 1.3rem; }
-    .brands-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
-    .brand-logo-img { max-height: 24px; max-width: 48px; }
+    .brand-logo-img { max-height: 26px; max-width: 50px; }
     .brand-name { font-size: 0.55rem; }
     .stat-item strong { font-size: 1.2rem; }
     .hero-stats { gap: 12px; }
     .gallery-grid { gap: 6px; }
     .btn { font-size: 13px; padding: 13px 18px; }
+    .service-cards-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .svc-card p { display: none; }
+    .svc-card { padding: 16px 10px; }
+    .svc-card-icon { width: 38px; height: 38px; font-size: 1.1rem; margin-bottom: 8px; }
   }
 
   /* ── TOUCH TARGET ── */
@@ -663,14 +785,36 @@
   </div>
 </section>
 
-<!-- BRANDS SECTION -->
+<!-- BRANDS SECTION — MARQUEE -->
 <section class="brands" id="brands">
   <div class="container">
     <div class="text-center">
       <span class="section-tag">Spesialisasi</span>
       <h2 class="section-title">Merk AC yang Kami Kerjakan</h2>
     </div>
-    <div class="brands-grid">
+  </div>
+  <div class="marquee-wrapper">
+    <div class="marquee-track" id="marqueeTrack">
+      <div class="brand-item"><img src="https://i.ibb.co/fdFwwgCK/lg.png" alt="LG AC" class="brand-logo-img" loading="lazy"><span class="brand-name">LG</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/JWWR0qgN/daikin.png" alt="Daikin AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Daikin</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/Q3v47myj/sharp.png" alt="Sharp AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Sharp</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/hTdQ3mH/thosiba.png" alt="Toshiba AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Toshiba</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/RTx46Ndg/panasonic.png" alt="Panasonic AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Panasonic</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/pvTz12vZ/samsung.png" alt="Samsung AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Samsung</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/BV3zrBxh/Haier-logo-svg.png" alt="Haier AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Haier</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/8DNTprNn/Logo-Akari.png" alt="Akari AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Akari</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/F47jwZJ7/Logo-Sanken.png" alt="Sanken AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Sanken</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/QvWDQm7v/tmp-9a6db9244d8172ef5af8fd932e3220fe-0f757bd25520a6d519a4eaa58c9eaa16.jpg" alt="Aqua AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Aqua</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/zVFmqW8p/709-7096063-mitsubishi-air-conditioning-mitsubishi-heavy-industries-logo-png.jpg" alt="Mitsubishi AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Mitsubishi</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/S4bg4DtV/logo.webp" alt="Gree AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Gree</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/PG91SYsD/Midea-Logo.png" alt="Midea AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Midea</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/9kKFrZ7d/CHL-60028-03c2b5e6-5af1-4397-ad3a-e04b04c50b5b.png" alt="Changhong AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Changhong</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/tTYWgMCf/61dfc49b1fca06-06626864.png" alt="Polytron AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Polytron</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/j9XbrB1x/tcl-share-e1676456859336.png" alt="TCL AC" class="brand-logo-img" loading="lazy"><span class="brand-name">TCL</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/G4Nc6s8k/Hisense-logo-PNG-6-1024x576.webp" alt="Hisense AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Hisense</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/PGVnQ3nq/Logo-AUX-Air-Conditioner-China-svg.png" alt="AUX AC" class="brand-logo-img" loading="lazy"><span class="brand-name">AUX</span></div>
+      <div class="brand-item"><img src="https://i.ibb.co/mr00FKr3/images.png" alt="Denpoo AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Denpoo</span></div>
+      <!-- DUPLICATE FOR SEAMLESS LOOP -->
       <div class="brand-item"><img src="https://i.ibb.co/fdFwwgCK/lg.png" alt="LG AC" class="brand-logo-img" loading="lazy"><span class="brand-name">LG</span></div>
       <div class="brand-item"><img src="https://i.ibb.co/JWWR0qgN/daikin.png" alt="Daikin AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Daikin</span></div>
       <div class="brand-item"><img src="https://i.ibb.co/Q3v47myj/sharp.png" alt="Sharp AC" class="brand-logo-img" loading="lazy"><span class="brand-name">Sharp</span></div>
@@ -731,32 +875,81 @@
   </div>
 </section>
 
-<!-- DAFTAR LAYANAN SECTION -->
+<!-- DAFTAR LAYANAN — CARD STYLE -->
 <section class="section-padding" style="background: var(--white); padding-top: 0;">
   <div class="container">
     <div class="text-center">
       <span class="section-tag">Layanan Lengkap</span>
       <h2 class="section-title">Daftar Layanan Kami</h2>
     </div>
-    <div class="services-list-grid">
-      <div class="service-list-item populer-service">
-        Service AC
-        <span class="badge-populer-list">Populer</span>
+    <div class="service-cards-grid">
+
+      <div class="svc-card">
+        <span class="badge-populer-card">Populer</span>
+        <div class="svc-card-icon">🛠️</div>
+        <h4>Service AC</h4>
+        <p>Perbaikan segala jenis kerusakan AC split & window.</p>
+        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20pesan%20Service%20AC" class="btn btn-primary btn-sm">Pesan Sekarang</a>
       </div>
-      <div class="service-list-item populer-service">
-        Cuci AC
-        <span class="badge-populer-list">Populer</span>
+
+      <div class="svc-card">
+        <span class="badge-populer-card">Populer</span>
+        <div class="svc-card-icon">🚿</div>
+        <h4>Cuci AC</h4>
+        <p>Cuci deep clean evaporator & unit luar.</p>
+        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20pesan%20Cuci%20AC" class="btn btn-primary btn-sm">Pesan Sekarang</a>
       </div>
-      <div class="service-list-item">Tukar Tambah AC</div>
-      <div class="service-list-item">Perbaikan AC</div>
-      <div class="service-list-item">Bongkar Pasang AC</div>
-      <div class="service-list-item populer-service">
-        Sewa AC
-        <span class="badge-populer-list">Populer</span>
+
+      <div class="svc-card">
+        <div class="svc-card-icon">🔄</div>
+        <h4>Tukar Tambah AC</h4>
+        <p>Tukar unit lama dengan AC baru lebih hemat.</p>
+        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20Tukar%20Tambah%20AC" class="btn btn-outline btn-sm">Pesan Sekarang</a>
       </div>
-      <div class="service-list-item">Panel Kontrol Motor</div>
-      <div class="service-list-item">Panel Distribusi & Lampu</div>
-      <div class="service-list-item">Gulung Dinamo</div>
+
+      <div class="svc-card">
+        <div class="svc-card-icon">🔧</div>
+        <h4>Perbaikan AC</h4>
+        <p>Diagnosa & perbaikan kompresor, PCB, dll.</p>
+        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20pesan%20Perbaikan%20AC" class="btn btn-outline btn-sm">Pesan Sekarang</a>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-icon">🔌</div>
+        <h4>Bongkar Pasang AC</h4>
+        <p>Instalasi baru atau pindah lokasi AC.</p>
+        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20pesan%20Bongkar%20Pasang%20AC" class="btn btn-outline btn-sm">Pesan Sekarang</a>
+      </div>
+
+      <div class="svc-card">
+        <span class="badge-populer-card">Populer</span>
+        <div class="svc-card-icon">🏷️</div>
+        <h4>Sewa AC</h4>
+        <p>Rental AC bulanan untuk kos & kantor.</p>
+        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20Sewa%20AC" class="btn btn-primary btn-sm">Pesan Sekarang</a>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-icon">⚡</div>
+        <h4>Panel Kontrol Motor</h4>
+        <p>Pemasangan & perbaikan panel motor.</p>
+        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20Panel%20Kontrol%20Motor" class="btn btn-outline btn-sm">Pesan Sekarang</a>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-icon">💡</div>
+        <h4>Panel Distribusi & Lampu</h4>
+        <p>Instalasi panel distribusi & lampu.</p>
+        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20Panel%20Distribusi%20Lampu" class="btn btn-outline btn-sm">Pesan Sekarang</a>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-icon">⚙️</div>
+        <h4>Gulung Dinamo</h4>
+        <p>Perbaikan & gulung ulang dinamo.</p>
+        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20pesan%20Gulung%20Dinamo" class="btn btn-outline btn-sm">Pesan Sekarang</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -797,36 +990,45 @@
       </div>
     </div>
 
-    <!-- KONDISI SECOND -->
-    <h3 class="condition-title">♻️ Kondisi Second</h3>
-    <div class="pricing-wrapper">
-      <div class="price-card">
-        <div class="price-unit">AC 0.5 PK</div>
-        <div class="price-type">Kondisi Second — Cocok untuk Ruangan 3x3m</div>
-        <div class="price-row main-price"><span>Sewa Bulanan</span><span>Rp 190.000</span></div>
-        <div class="price-row installation-fee"><span>Biaya Pasang</span><span>Rp 350.000</span></div>
-        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%200.5%20PK%20Second" class="btn btn-outline">Pesan Sekarang</a>
-      </div>
-      <div class="price-card">
-        <div class="price-unit">AC 1 PK</div>
-        <div class="price-type">Kondisi Second — Cocok untuk Ruangan 4x4m</div>
-        <div class="price-row main-price"><span>Sewa Bulanan</span><span>Rp 190.000</span></div>
-        <div class="price-row installation-fee"><span>Biaya Pasang</span><span>Rp 350.000</span></div>
-        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%201%20PK%20Second" class="btn btn-outline">Pesan Sekarang</a>
-      </div>
-      <div class="price-card">
-        <div class="price-unit">AC 1.5 PK</div>
-        <div class="price-type">Kondisi Second — Cocok untuk Ruangan 5x5m</div>
-        <div class="price-row main-price"><span>Sewa Bulanan</span><span>Rp 350.000</span></div>
-        <div class="price-row installation-fee"><span>Biaya Pasang</span><span>Rp 350.000</span></div>
-        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%201.5%20PK%20Second" class="btn btn-outline">Pesan Sekarang</a>
-      </div>
-      <div class="price-card">
-        <div class="price-unit">AC 2 PK</div>
-        <div class="price-type">Kondisi Second — Cocok untuk Ruangan 6x6m</div>
-        <div class="price-row main-price"><span>Sewa Bulanan</span><span>Rp 400.000</span></div>
-        <div class="price-row installation-fee"><span>Biaya Pasang</span><span>Rp 350.000</span></div>
-        <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%202%20PK%20Second" class="btn btn-outline">Pesan Sekarang</a>
+    <!-- TOGGLE SECOND HAND -->
+    <div class="text-center">
+      <button class="toggle-secondhand-btn" id="toggleSecondhand" onclick="toggleSecondHand()">
+        ♻️ Lihat Harga Kondisi Second <span class="toggle-arrow">▼</span>
+      </button>
+    </div>
+
+    <!-- KONDISI SECOND (HIDDEN BY DEFAULT) -->
+    <div class="secondhand-section" id="secondhandSection">
+      <h3 class="condition-title">♻️ Kondisi Second</h3>
+      <div class="pricing-wrapper">
+        <div class="price-card">
+          <div class="price-unit">AC 0.5 PK</div>
+          <div class="price-type">Kondisi Second — Cocok untuk Ruangan 3x3m</div>
+          <div class="price-row main-price"><span>Sewa Bulanan</span><span>Rp 190.000</span></div>
+          <div class="price-row installation-fee"><span>Biaya Pasang</span><span>Rp 350.000</span></div>
+          <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%200.5%20PK%20Second" class="btn btn-outline">Pesan Sekarang</a>
+        </div>
+        <div class="price-card">
+          <div class="price-unit">AC 1 PK</div>
+          <div class="price-type">Kondisi Second — Cocok untuk Ruangan 4x4m</div>
+          <div class="price-row main-price"><span>Sewa Bulanan</span><span>Rp 190.000</span></div>
+          <div class="price-row installation-fee"><span>Biaya Pasang</span><span>Rp 350.000</span></div>
+          <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%201%20PK%20Second" class="btn btn-outline">Pesan Sekarang</a>
+        </div>
+        <div class="price-card">
+          <div class="price-unit">AC 1.5 PK</div>
+          <div class="price-type">Kondisi Second — Cocok untuk Ruangan 5x5m</div>
+          <div class="price-row main-price"><span>Sewa Bulanan</span><span>Rp 350.000</span></div>
+          <div class="price-row installation-fee"><span>Biaya Pasang</span><span>Rp 350.000</span></div>
+          <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%201.5%20PK%20Second" class="btn btn-outline">Pesan Sekarang</a>
+        </div>
+        <div class="price-card">
+          <div class="price-unit">AC 2 PK</div>
+          <div class="price-type">Kondisi Second — Cocok untuk Ruangan 6x6m</div>
+          <div class="price-row main-price"><span>Sewa Bulanan</span><span>Rp 400.000</span></div>
+          <div class="price-row installation-fee"><span>Biaya Pasang</span><span>Rp 350.000</span></div>
+          <a href="https://wa.me/6285817818216?text=Halo,%20saya%20mau%20tanya%20rental%20AC%202%20PK%20Second" class="btn btn-outline">Pesan Sekarang</a>
+        </div>
       </div>
     </div>
 
@@ -896,7 +1098,7 @@
           <h4 style="margin-bottom: 12px; display: flex; gap: 12px; align-items: center; font-size: 1.1rem;">🛡️ Garansi Resmi</h4>
           <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Setiap service dan bongkar pasang mendapatkan garansi toko hingga 30 hari (tergantung jenis kerusakan).</p>
         </div>
-        <div class="testimonial-card" style="background: white; padding: 32px; border-radius: 16px; border-left: 5px solid var(--cyan-500); box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+        <div style="background: white; padding: 32px; border-radius: 16px; border-left: 5px solid var(--cyan-500); box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
           <strong style="color: var(--cyan-700); display: block; margin-bottom: 8px; font-size: 1.1rem;">Ulasan Pelanggan:</strong>
           <p style="font-style: italic; color: var(--text-main); font-size: 1rem; line-height: 1.6;">"Pelayanan sangat cepat, teknisi ramah dan AC saya jadi dingin kembali. Mantap Sejuk Teknik!" <br><strong style="color: var(--dark); margin-top: 8px; display: block;">— Ibu Hartini, Kelapa Gading</strong></p>
         </div>
@@ -975,11 +1177,10 @@
   </div>
 </section>
 
-<!-- FOOTER (UPDATED — tambah kolom Informasi) -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <!-- Kolom 1: Brand -->
       <div>
         <a href="#" class="footer-logo">❄️ Sejuk Teknik AC</a>
         <p style="margin-bottom: 24px; font-size: 1rem; line-height: 1.8;">Mitra terpercaya untuk solusi pendinginan ruangan Anda. Melayani service, cuci, rental, dan instalasi AC di seluruh wilayah Jakarta dengan standar kualitas tinggi.</p>
@@ -989,7 +1190,6 @@
           <a href="#" aria-label="Facebook">📘</a>
         </div>
       </div>
-      <!-- Kolom 2: Menu -->
       <div>
         <h4 style="color: white; margin-bottom: 24px; font-size: 1.1rem;">Menu</h4>
         <ul class="footer-links">
@@ -1000,7 +1200,6 @@
           <li><a href="#contact">Kontak</a></li>
         </ul>
       </div>
-      <!-- Kolom 3: Layanan -->
       <div>
         <h4 style="color: white; margin-bottom: 24px; font-size: 1.1rem;">Layanan</h4>
         <ul class="footer-links">
@@ -1011,7 +1210,6 @@
           <li><a href="#">Rental AC</a></li>
         </ul>
       </div>
-      <!-- Kolom 4: Informasi (BARU) -->
       <div>
         <h4 style="color: white; margin-bottom: 24px; font-size: 1.1rem;">Informasi</h4>
         <ul class="footer-links">
@@ -1020,7 +1218,6 @@
           <li><a href="Privacy-policy-ST/index.html">Kebijakan Privasi</a></li>
         </ul>
       </div>
-      <!-- Kolom 5: Area Jakarta -->
       <div>
         <h4 style="color: white; margin-bottom: 24px; font-size: 1.1rem;">Area Jakarta</h4>
         <ul class="footer-links">
@@ -1080,6 +1277,19 @@
     var isActive = parent.classList.contains('active');
     document.querySelectorAll('.faq-item').forEach(function(item) { item.classList.remove('active'); });
     if (!isActive) { parent.classList.add('active'); }
+  }
+
+  // Toggle Second Hand Section
+  function toggleSecondHand() {
+    var section = document.getElementById('secondhandSection');
+    var btn = document.getElementById('toggleSecondhand');
+    section.classList.toggle('show');
+    btn.classList.toggle('active');
+    if (section.classList.contains('show')) {
+      btn.innerHTML = '♻️ Sembunyikan Kondisi Second <span class="toggle-arrow">▼</span>';
+    } else {
+      btn.innerHTML = '♻️ Lihat Harga Kondisi Second <span class="toggle-arrow">▼</span>';
+    }
   }
   
   // Smooth Scroll for Anchor Links
