@@ -679,8 +679,26 @@
   .contact-info-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
   .contact-row { display: flex; gap: 20px; margin-bottom: 28px; align-items: flex-start; }
   .contact-icon { width: 44px; height: 44px; background: var(--cyan-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cyan-600); font-size: 1.2rem; flex-shrink: 0; }
-  .map-container { border-radius: var(--radius); overflow: hidden; height: 100%; min-height: 450px; border: 2px solid var(--cyan-200); box-shadow: var(--shadow); }
-  .map-container iframe { width: 100%; height: 100%; border: 0; }
+  
+  /* MAP CONTAINER FIX */
+  .map-container { 
+    border-radius: var(--radius); 
+    overflow: hidden; 
+    height: 100%; 
+    min-height: 450px; 
+    border: 2px solid var(--cyan-200); 
+    box-shadow: var(--shadow); 
+    position: relative;
+  }
+  
+  .map-container iframe { 
+    width: 100%; 
+    height: 100%; 
+    border: 0; 
+    display: block;
+  }
+  /* END MAP CONTAINER FIX */
+
   .area-tags { display: flex; flex-wrap: wrap; gap: 10px; }
   .area-tag { background: var(--cyan-50); color: var(--cyan-700); padding: 6px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 500; }
   .contact-divider { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--cyan-100); }
@@ -1412,7 +1430,8 @@
         </div>
       </div>
       <div class="map-container">
-        <iframe src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253885.33932186995!2d106.61593138671871!3d-6.136288199999975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5a6b14e84c7%3A0xc2ac4dbdc9ccda18!2sSEJUK%20TEKNIK%20(Repair%20%26%20Rent%20AC)!5e0!3m2!1sid!2sid!4v2501711561603!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- Google Maps Iframe correctly placed here -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253885.33932186995!2d106.61593138671871!3d-6.136288199999975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5a6b14e84c7%3A0xc2ac4dbdc9ccda18!2sSEJUK%20TEKNIK%20(Repair%20%26%20Rent%20AC)!5e0!3m2!1sid!2sid!4v2501711561603!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
     <div class="text-center" style="margin-top: 40px;">
