@@ -46,7 +46,7 @@ function toggleSecondHand() {
   }
 }
 
-// Smooth Scroll for Anchor Links
+// Smooth Scroll for Anchor Links (BAGIAN YANG DIPERBAIKI)
 document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -54,9 +54,12 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     if (targetId === '#') return;
     var targetElement = document.querySelector(targetId);
     if (targetElement) {
-      var navHeight = document.querySelector('nav').offsetHeight;
-      var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      // Dibungkus requestAnimationFrame agar kalkulasi geometri sinkron dengan jadwal render browser
+      requestAnimationFrame(function() {
+        var navHeight = document.querySelector('nav').offsetHeight;
+        var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      });
     }
   });
 });
