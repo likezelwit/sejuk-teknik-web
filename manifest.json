@@ -1,0 +1,21 @@
+{
+  "name": "Sejuk Teknik AC Jakarta Utara",
+  "short_name": "Sejuk Teknik",
+  "description": "Jasa Cuci AC, Sewa AC Split Bulanan & Service AC Jakarta Utara",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1E3A8A",
+  "icons": [
+    {
+      "src": "https://i.ibb.co.com/qMfqRXm0/15825173_d48c-4cd8-a166-c6d4fe79d0da.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "https://i.ibb.co.com/qMfqRXm0/15825173_d48c-4cd8-a166-c6d4fe79d0da.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
